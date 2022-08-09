@@ -32,7 +32,6 @@ public class Login extends HttpServlet {
 		String account= request.getParameter("account");
 		String passwd= request.getParameter("passwd");
 		String verify=dataBase.verify(account, passwd);
-		System.out.println(account);
 		if(verify.equals("member")) {
 			context.setAttribute("account", account);
 			context.setAttribute("passwd", passwd);
