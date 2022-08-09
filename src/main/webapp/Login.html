@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>會員登入</title>
+    <style>
+        @import url(css/login.css) (max-width: 1399px);
+        @import url(css/loginw_14.css) (min-width: 1399px);
+    </style>
+    <script src="js/login.js"></script>
+</head>
+<body class="b">
+    <div class="div1">
+        <ul>
+            <li><a class="index" href="Home.html" >首頁</a></li>
+            <li><a class="index" href="Reserved.html">線上訂位</a></li>
+            <li><a class="index" href="Menu.html">線上/場 點餐</a></li>
+            <li><a class="index" href="Login.html"style="color: rgba(0, 0, 0, 0.463)">會員專區</a></li>
+        </ul>
+    </div>
+    <div>
+        <div class="login">
+            <span>LOGIN</span>
+        </div>
+        <div style="float: left;width: 25%;">
+        <p><br></p>
+        </div>
+        <form name="loginDataForm" method="post" action="http://localhost:8080/project/Login" >
+            <fieldset class="account backdrop-blur">
+                <p ><label for="username">會員帳號&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label><input type="text" name="account" id="account" size="40"></p>
+                <p style="margin-top: 5%; margin-bottom: 3%;" ><label for="passwd">會員密碼&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label><input type="password" name="passwd" id="passwd" size="40"></p>
+                <p style="margin-bottom: 6%;">
+                    <input type="button" value="登入" onclick="verify()"> 
+                    <input type="reset" value="重置"></p>
+                <a class="register" href="Register.html">還不是會員?點我註冊!</a>
+            </fieldset>
+        </form>
+    </div>
+</body>
+</html>

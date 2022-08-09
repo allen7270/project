@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>線上訂位</title>
+    <style>
+        @import url(css/reserved.css) (max-width: 1399px);
+        @import url(css/reserved_w14.css) (min-width: 1399px);
+    </style>
+    <script src="js/reserved.js"></script>
+</head>
+<body class="b">
+    <div class="div1">
+        <ul>
+            <li><a class="index" href="Home.html" >首頁</a></li>
+            <li><a class="index" href="Reserved.html" style="color: rgba(0, 0, 0, 0.463)">線上訂位</a></li>
+            <li><a class="index" href="Menu.html">線上/場 點餐</a></li>
+            <li><a class="index" href="Login.html">會員專區</a></li>
+        </ul>
+    </div>
+    <div style="position: relative;">
+        <form name="reservedForm" method="post" action="http://localhost:8080/project/Reserved">
+            <div class="loc" style="top:2%; left: 4%; color: rgba(255, 253, 253, 0.518);" >
+                <span >北</span>
+            </div>
+            <div class="loc" style="top:34%; left: 9%;color: rgba(0, 0, 0, 0.67);" >
+                <span >中</span>
+            </div>
+            <div class="loc" style="top:69%; left: 14%;color: rgba(255, 255, 255, 0.604);" >
+                <span >南</span>
+            </div>
+            <div >
+                <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1872744.1996002842!2d120.64017107440759!3d23.543163801886624!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a96903907a95%3A0x49dcaaa99c710207!2z54Sh6ICB6Y2LKOS4reWxseW6lyk!5e0!3m2!1szh-TW!2stw!4v1657939897423!5m2!1szh-TW!2stw" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <ul class="text" >
+                    <li class="name" >中山店</li><br>
+                    <li>地址: 台北市.....</li><br>
+                    <li>電話: 02-3434343</li><br>
+                    <li>營業時間: 10:00~22:00</li>
+                </ul>
+                <div>
+                    <p class="text2 " style="padding-top:1.5%">用餐時間</p>
+                    <input class="date" type="date" name="dateC" id="dateC"><br>
+                    <input type="time" name="timeC" id="timeC"><br>
+                    <p class="text2">用餐人數</p>
+                    <input type="number" name="numberC" id="numberC" min="1">
+                </div>
+            </div>
+            <div class="div2">
+                <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1863982.0893182417!2d118.54114439999998!3d24.15103210000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34693d965f29ddcd%3A0x3352553556c97bc8!2z54Sh6ICB6Y2LKOWFrOebiuW6lyk!5e0!3m2!1szh-TW!2stw!4v1657940396360!5m2!1szh-TW!2stw" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <ul class="text" >
+                    <li class="name" style="color: rgba(0, 0, 0, 0.67);">公益店</li><br>
+                    <li style="color: rgba(0, 0, 0, 0.67);">地址: 台中市.....</li><br>
+                    <li style="color: rgba(0, 0, 0, 0.67);">電話: 04-3434343</li><br>
+                    <li style="color: rgba(0, 0, 0, 0.67);">營業時間: 10:00~22:00</li>
+                </ul>
+                <div>
+                    <p class="text2" style="padding-top:1.5%;color: rgba(0, 0, 0, 0.67); ">用餐時間</p>
+                    <input class="date" type="date" name="dateG" id="dateG"><br>
+                    <input type="time" name="timeG" id="timeG"><br>
+                    <p class="text2" style="color: rgba(0, 0, 0, 0.67);">用餐人數</p>
+                    <input type="number" name="numberG" id="numberG" min="1">
+                </div>
+            </div>
+            <div class="div2">
+                <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1863982.0893182417!2d118.54114439999998!3d24.15103210000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e037d7f3b6375%3A0xd222597d59ace150!2z54Sh6ICB6Y2LKOiLk-mbheW6lyk!5e0!3m2!1szh-TW!2stw!4v1657942847803!5m2!1szh-TW!2stw" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <ul class="text" >
+                    <li class="name">苓雅店</li><br>
+                    <li>地址: 高雄市.....</li><br>
+                    <li>電話: 07-3434343</li><br>
+                    <li>營業時間: 10:00~22:00</li>
+                </ul>
+                <div>
+                    <p class="text2" style="padding-top:1.5%; ">用餐時間</p>
+                    <input class="date" type="date" name="dateL" id="dateL"><br>
+                    <input type="time" name="timeL" id="timeL"><br>
+                    <p class="text2">用餐人數</p>
+                    <input type="number" name="numberL" id="numberL" min="1">
+                </div>
+            </div>
+            </div>
+            <div style="clear: both; float: left; width: 50%; margin-left: 25%; margin-top: 5%;">
+                <fieldset class="account backdrop-blur">
+                    <legend class="legend">基本資料填寫</legend>
+                    <p class="text1"  ><label for="username">姓名&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label><input type="text" name="username" id="username" size="40"></p>
+                    <p class="text1"  ><label for="mail">信箱&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label><input type="email" name="mail" id="mail" size="40" placeholder=" xxx@xxx.xxx"></p>
+                    <p class="text1" style="margin-bottom: 5%;" ><label for="phone">電話&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label><input type="text" name="phone" id="phone" size="40" placeholder=" 手機號碼"></p>
+                </fieldset>
+            </div>
+            
+            <div style="clear: both; text-align: center;">
+                <p style="font-size: 40px;">
+                    <input type="button" value="確認" onclick="check()">
+                    <input type="reset" value="取消">
+                </p>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

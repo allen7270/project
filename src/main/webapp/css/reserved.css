@@ -1,0 +1,70 @@
+@charset "UTF-8";
+@import url(index.css);
+.div1{
+    background-color:rgb(200, 198, 198); 
+    margin: 2% 10%; 
+    margin-bottom: 4%; 
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.div2{
+    margin-top: 5%;
+}
+.map{
+    width: 25%;
+    height: 50%;
+    float: left;
+    padding-left: 25%;
+}
+.text{
+    color: whitesmoke;
+    float: left;
+    text-align: left;
+    padding-left: 3%;
+    width: 17%;
+    margin-top: 2%;
+    font-family: Myfont;
+    font-size: 1rem;
+
+}
+.name{
+    color: rgba(255, 253, 253, 0.518);
+    font-size: 1.2rem;
+}
+.text2{
+    font-family: Myfont;
+    color: rgba(255, 253, 253, 0.518);
+}
+.loc{
+    position: absolute;
+    font-size: 7rem;
+    font-family: newsf;
+}
+.b{
+    background-image:url(https://images.unsplash.com/photo-1523305846158-488dedcf8629?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nzh8fG1vdW5hdGluc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=1400&q=60);
+    background-position: center;
+    background-repeat: none;
+    background-attachment: fixed;
+}
+.backdrop-blur{
+    backdrop-filter: blur(5px);
+}
+.account{
+    text-align: center;
+    font-size: 1.1rem;
+    padding-top: 2%;
+    padding-bottom: 3%;
+    width: 100%;
+    font-family: 'Noto Sans TC', sans-serif;
+    color: rgba(255, 255, 255, 0.778);
+    border: solid 0.15rem;
+}
+.text1{
+    margin-top: 2%;
+}
+legend{
+    padding: 0 10px;
+    font-size: 3rem;
+    font-family: loginf;
+    color: rgba(0, 0, 0, 0.463);
+}

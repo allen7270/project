@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>會員註冊</title>
+    <style>
+        @import url(css/register.css) (max-width: 1399px);
+        @import url(css/register_w14.css) (min-width: 1399px);
+    </style>
+    <script src="js/register.js"></script>
+</head>
+<body class="b">
+    <div class="div1">
+        <ul>
+            <li><a class="index" href="Home.html" >首頁</a></li>
+            <li><a class="index" href="Reserved.html">線上訂位</a></li>
+            <li><a class="index" href="Menu.html">線上/場 點餐</a></li>
+            <li><a class="index" href="Login.html"style="color: rgba(0, 0, 0, 0.463)">會員專區</a></li>
+        </ul>
+    </div>
+    <div>
+        <div class="register">
+            <span>REGISTER</span>
+        </div>
+        <div style="float: left;width: 25%;">
+        <p><br></p>
+        </div>
+        <form name="dataForm" method="post" action="http://localhost:8080/project/Register">
+            <fieldset class="account backdrop-blur">
+                <p class="text"  ><label for="username">姓名&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label><input type="text" name="username" id="username" size="40"></p>
+                <p class="text"  ><label for="account">帳號&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label><input type="text" name="account" id="account" size="40" placeholder=" 至少5位元"></p>
+                <p class="text"  ><label for="passwd">密碼&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label><input type="password" name="passwd" id="passwd" size="40" placeholder=" 至少5位元"></p>
+                <p class="text"  ><label for="mail">信箱&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label><input type="email" name="mail" id="mail" size="40" placeholder=" xxx@xxx.xxx"></p>
+                <p class="text" style="margin-bottom: 5%;" ><label for="phone">電話&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label><input type="text" name="phone" id="phone" size="40" placeholder=" 手機號碼"></p>
+                <p class="text" style="margin-bottom: 3%;">
+                    <input type="button" value="註冊" onclick="check()"> 
+                    <input type="reset" value="重置">
+                </p>
+                <a class="member" href="Login.html">已是會員?點我登入!</a>
+            </fieldset>
+        </form>
+    </div>
+</body>
+</html>

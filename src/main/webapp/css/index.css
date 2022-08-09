@@ -1,0 +1,47 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap');
+@font-face {
+    font-family: MyFont;
+    src: url('tff/TWSung.otf');
+}
+@font-face {
+    font-family: newsf;
+    src: url('tff/HanyiSentySpringBrush.ttf');
+}
+@font-face {
+    font-family: indexf;
+    src: url('tff/HanyiSentyZHAO.ttf');
+}
+@font-face {
+    font-family: loginf;
+    src: url('tff/HanyiSentySpringBrush\ \(1\).ttf');
+}
+@font-face {
+    font-family: art;
+    src: url(tff/Stamp.ttf);
+}
+@font-face {
+    font-family: art1;
+    src: url(tff/art.ttf);
+}
+*{
+    padding: 0;
+    margin: 0;
+}
+ul{
+    text-align: center;   
+}
+li{
+    display: inline;
+    margin: 10px;
+}
+.index{
+    margin: 1px;
+    color:rgba(128, 128, 128, 0.863);
+    text-decoration:none;
+    font-family: indexf;
+    font-size: 2rem;   
+}
+.index:hover{
+    color: rgba(0, 0, 0, 0.463);
+}
