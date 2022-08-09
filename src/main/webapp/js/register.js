@@ -7,29 +7,7 @@ function check(){
     mailpattern = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
     phonepattern= /09\d{8}/;
     go= true;
-    // username
-    if(username.value==""){
-        alert('名字未填寫!');
-        username.focus();
-        go= false;
-        return false;
-    } else{
-        go= true;
-    }
-    // account
-    if(account.value==""){
-        alert('帳號未填寫!');
-        account.focus();
-        go= false;
-        return false;
-    } else if(account.value.length<5){
-        alert('帳號長度不足!');
-        account.select();
-        go= false;
-        return false;
-    } else{
-        go= true;
-    }
+    
     // passwd
     if(passwd.value==""){
         alert('密碼未填寫!');

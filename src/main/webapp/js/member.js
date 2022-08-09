@@ -19,3 +19,14 @@ function show(){
 		}
 		xmlHTTP.send();
 }
+function alter(){
+	alert("ok!");
+	// document.getElementById("username").innerHTML='<input type="text" name="username" id="username" size="40">';
+	// document.getElementById("account").innerHTML='<input type="text" name="username" id="username" size="40">';
+	// document.getElementById("passwd").innerHTML='<input type="text" name="username" id="username" size="40">';
+	// document.getElementById("mail").innerHTML='<input type="text" name="username" id="username" size="40">';
+	// document.getElementById("phone").innerHTML='<input type="text" name="username" id="username" size="40">';
+	// document.getElementById("button").value="確認";
+	// document.getElementById("button").innerHTML='<input type="submit" value="確認">'
+	// alert("ok!");
+}
