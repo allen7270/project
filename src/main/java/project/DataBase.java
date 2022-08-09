@@ -64,7 +64,6 @@ public class DataBase {
 			var treat= new Treat();
 			var con= DriverManager.getConnection(this.url,this.username,this.passwd);
 			var st= con.createStatement();
-			System.out.println(data.getAccount());
 			String sql= String.format("update project.member set passwd='%s',mail='%s', phone='%s' where account ='%s' and passwd='%s';",
 					treat.Encryption(passwdAlter), data.getMail(), data.getphone(),data.getAccount(), treat.Encryption(data.getPasswd()));
 			st.execute(sql);
