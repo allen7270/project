@@ -8,6 +8,16 @@
     <style>
         @import url(css/login.css) (max-width: 1399px);
         @import url(css/loginw_14.css) (min-width: 1399px);
+        .button{
+            font-family: loginf;
+            font-size: 2rem;
+            margin-left: 5%;
+            text-decoration:none;
+            color: rgba(247, 247, 247, 0.863);
+		}
+		.button:hover{
+            color:rgb(255, 255, 255);
+		}
     </style>
     <script src="js/login.js"></script>
 </head>
@@ -31,9 +41,10 @@
             <fieldset class="account backdrop-blur">
                 <p ><label for="username">會員帳號&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label><input type="text" name="account" id="account" size="40"></p>
                 <p style="margin-top: 5%; margin-bottom: 3%;" ><label for="passwd">會員密碼&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label><input type="password" name="passwd" id="passwd" size="40"></p>
-                <p style="margin-bottom: 6%;">
-                    <input type="button" value="登入" onclick="verify()"> 
-                    <input type="reset" value="重置"></p>
+                <p style="margin-bottom: 3%;">
+                    <a href="" class="button" onclick="verify()">登入</a>
+                    <a href="" class="button" onclick="reset()">重置</a>
+                </p>
                 <a class="register" href="Register.html">還不是會員?點我註冊!</a>
             </fieldset>
         </form>
