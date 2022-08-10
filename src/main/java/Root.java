@@ -38,11 +38,10 @@ public class Root extends HttpServlet {
 			out.print(dataA);
 		}
 		else if(p.equals("true")) {
-			String[] data=dataBase.loadData(account, passwd);
 			dataBase.punch(account);
+			String[] data=dataBase.loadPunchdata(account, passwd);
 			String dataA=String.join(",", data);
 			out.print(dataA);
-			
 		}	
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

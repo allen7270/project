@@ -15,6 +15,9 @@ function show(){
             document.getElementById("passwd").innerText= ans[2];
             document.getElementById("mail").innerText= ans[3];	
             document.getElementById("phone").innerText= ans[4];
+            document.getElementById("date").innerText= ans[5];
+            document.getElementById("in").innerText= ans[6];
+            document.getElementById("out").innerText= ans[7];
         }
         }
         xmlHTTP.send();
@@ -37,6 +40,9 @@ function punch(){
             document.getElementById("passwd").innerText= ans[2];
             document.getElementById("mail").innerText= ans[3];	
             document.getElementById("phone").innerText= ans[4];
+            document.getElementById("date").innerText= ans[5];
+            document.getElementById("in").innerText= ans[6];
+            document.getElementById("out").innerText= ans[7];
         }
         }
         xmlHTTP.send();

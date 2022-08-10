@@ -150,8 +150,6 @@ public class DataBase {
 			var con= DriverManager.getConnection(this.url,this.username,this.passwd);
 			var st= con.createStatement();
 			String name="", mail="", phone="";
-//			var al= new ArrayList<String>();
-//			String[] data;
 			// MySQL(select data)
 			String sql= String.format("select * from member where account='%s' and passwd='%s';",
 					account,treat.Encryption(passwd));
@@ -170,6 +168,41 @@ public class DataBase {
 			return data;
 		}
 	}
+	
+	// loading punch data
+	public String[] loadPunchdata(String account, String passwd) {
+		try {
+			Date date= new Date();
+			String d= date.toString().substring(4,10);
+			var treat= new Treat();
+			var con= DriverManager.getConnection(this.url,this.username,this.passwd);
+			var st= con.createStatement();
+			String name="",mail="",phone="",in="", out="";
+			// MySQL(select data)
+			String sql= String.format("select * from member where account='%s' and passwd='%s';",
+					account,treat.Encryption(passwd));
+			var rs= st.executeQuery(sql);
+			while(rs.next()) {
+				name= rs.getString("username");
+				mail= rs.getString("mail");
+				phone= rs.getString("phone");
+			}
+			String sql1= String.format("select * from `"+d+"` where account='%s';",
+					account);
+			var rs1= st.executeQuery(sql1);
+			while(rs1.next()) {
+				in= rs1.getString("in");
+				out= rs1.getString("out");
+			}
+			String[] data= {name, account, passwd, mail, phone, d, in, out};
+			return data;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			String[] data= {};
+			return data;
+		}
+	}
 
 	// root punch
 	public void punch(String account) {
@@ -177,7 +210,6 @@ public class DataBase {
 		String d= date.toString().substring(4,10);
 		String t= date.toString().substring(11,16);
 		try {
-//			var treat= new Treat();
 			var con= DriverManager.getConnection(this.url,this.username,this.passwd);
 			var st= con.createStatement();
 			st.executeUpdate("create table if not exists `"+d+"`(like IO);");
