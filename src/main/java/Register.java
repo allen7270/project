@@ -12,7 +12,12 @@ import project.DataBase;
 import project.Treat;
 
 /**
- * Servlet implementation class Resgister
+ * 
+ * @projectName project
+ * @className Register
+ * @author allen
+ * @date 2022年8月4日 下午7:48:04
+ * Servlet implementation class Login
  */
 @WebServlet("/Register")
 public class Register extends HttpServlet {

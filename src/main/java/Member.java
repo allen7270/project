@@ -12,8 +12,14 @@ import javax.servlet.http.HttpServletResponse;
 import project.DataBase;
 
 /**
- * Servlet implementation class Member
+ * 
+ * @projectName project
+ * @className Member
+ * @author allen
+ * @date 2022年8月4日 上午11:50:24
+ * Servlet implementation class Login
  */
+
 @WebServlet("/Member")
 public class Member extends HttpServlet {
 	

@@ -13,6 +13,12 @@ import project.Data;
 import project.DataBase;
 
 /**
+ * 
+ * @projectName project
+ * @className Alter
+ * @author allen
+ * @date 2022年8月9日 下午3:35:28
+ *
  * Servlet implementation class Alter
  */
 @WebServlet("/Alter")

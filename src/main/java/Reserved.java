@@ -11,7 +11,12 @@ import project.DataBase;
 import project.ReservedData;
 
 /**
- * Servlet implementation class Reserved
+ * 
+ * @projectName project
+ * @className Reserved
+ * @author allen
+ * @date 2022年8月5日 下午2:58:27
+ * Servlet implementation class Login
  */
 @WebServlet("/Reserved")
 public class Reserved extends HttpServlet {

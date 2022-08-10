@@ -1,5 +1,11 @@
 package project;
-
+/**
+ * 
+ * @projectName project
+ * @className Treat
+ * @author allen
+ * @date 2022年8月04日 下午4:12:31
+ */
 public class Treat {
 	
 	public String Encryption(String passwd) {

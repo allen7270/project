@@ -1,7 +1,13 @@
 package project;
 
 import java.io.Serializable;
-
+/**
+ * 
+ * @projectName project
+ * @className Data
+ * @author allen
+ * @date 2022年8月3日 下午12:05:22
+ */
 public class Data implements Serializable{
 	private String username, account, passwd, mail, phone;
 	public Data(){}

@@ -1,7 +1,13 @@
 package project;
 
 import java.io.Serializable;
-
+/**
+ * 
+ * @projectName project
+ * @className ReservedData
+ * @author allen
+ * @date 2022年8月05日 下午4:06:32
+ */
 public class ReservedData implements Serializable {
 	private String name, deptno, date, time, number, mail, phone;
 	public ReservedData() {}

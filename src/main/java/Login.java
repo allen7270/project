@@ -12,6 +12,12 @@ import javax.servlet.http.HttpServletResponse;
 import project.DataBase;
 
 /**
+ * 
+ * @projectName project
+ * @className Login
+ * @author allen
+ * @date 2022年8月4日 下午7:43:53
+ * 
  * Servlet implementation class Login
  */
 @WebServlet("/Login")
