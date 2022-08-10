@@ -39,14 +39,15 @@ public class DataBase {
 			var st= con.createStatement();
 			// MuSQL(create table)
 			st.executeUpdate("CREATE TABLE IF NOT EXISTS member (\n"
-					+ "    `no` INT NOT NULL AUTO_INCREMENT,\n"
 					+ "    `id` VARCHAR(10) NOT NULL,\n"
 					+ "    `username` VARCHAR(20) NOT NULL,\n"
 					+ "    `account` VARCHAR(20) DEFAULT 'null',\n"
 					+ "    `passwd` VARCHAR(20) DEFAULT 'null',\n"
 					+ "    `mail` VARCHAR(20) NOT NULL,\n"
 					+ "    `phone` VARCHAR(20) NOT NULL,\n"
-					+ "    PRIMARY KEY (`no`)\n"
+					+ "    PRIMARY KEY (`username`),\n"
+					+ "    FOREIGN KEY (`id`)\n"
+					+ "        REFERENCES id (`idno`)\n"
 					+ ");");
 			// MySQL(insert data)
 			String sql= String.format("insert into member(id ,username, account, passwd, mail, phone) values('I02','%s', '%s', '%s', '%s', '%s')",
@@ -181,7 +182,6 @@ public class DataBase {
 			var st= con.createStatement();
 			st.executeUpdate("create table if not exists `"+d+"`(like IO);");
 	        var rs= st.executeQuery("select * from `"+d+"` where account='"+account+"';");
-	        System.out.println("yes");
 	        String i="null";
 	        while(rs.next()) {
 	            i=rs.getString("in");
