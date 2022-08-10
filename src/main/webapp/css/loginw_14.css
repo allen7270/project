@@ -1,5 +1,6 @@
 @charset "UTF-8";
 @import url(index.css);
+
 .login{
     text-align: center;
     font-size: 5rem;
@@ -41,4 +42,16 @@
 }
 .backdrop-blur{
     backdrop-filter: blur(5px);
+}
+.button{
+    border:0;
+    background-color:rgba(0, 0, 0, 0); 
+    color: rgba(247, 247, 247, 0.863);
+    cursor:pointer;
+    font-family: loginf;
+    font-size: 2rem;
+    margin-left: 5%;
+}
+.button:hover{
+    color:rgb(255, 255, 255);
 }
