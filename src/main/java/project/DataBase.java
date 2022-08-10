@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -37,11 +38,21 @@ public class DataBase {
 			e.printStackTrace();
 		} 
 	}
-	
+	// Connection to MySQL
+	public Connection getConnection() {
+		try {
+			Connection con= DriverManager.getConnection(this.url,this.username,this.passwd);
+			return con;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
+	}
 	// input data to database
 	public void add(Data data) {
 		try {
-			var con= DriverManager.getConnection(this.url,this.username,this.passwd);
+			var con= getConnection();
 			var st= con.createStatement();
 			// MuSQL(create table)
 			st.executeUpdate("CREATE TABLE IF NOT EXISTS member (\n"
@@ -69,7 +80,7 @@ public class DataBase {
 	public void alter(Data data, String passwdAlter) {
 		try {
 			var treat= new Treat();
-			var con= DriverManager.getConnection(this.url,this.username,this.passwd);
+			var con= getConnection();
 			var st= con.createStatement();
 			String sql= String.format("update project.member set passwd='%s',mail='%s', phone='%s' where account ='%s' and passwd='%s';",
 					treat.Encryption(passwdAlter), data.getMail(), data.getphone(),data.getAccount(), treat.Encryption(data.getPasswd()));
@@ -84,7 +95,7 @@ public class DataBase {
 	public String verify(String account, String passwd){
 		try {
 			var treat= new Treat();
-			var con= DriverManager.getConnection(this.url,this.username,this.passwd);
+			var con= getConnection();
 			var st= con.createStatement();
 			// MySQL(select data)
 			String sql= String.format("select * from member where account='%s' and passwd='%s';",
@@ -112,7 +123,7 @@ public class DataBase {
 	// insert into reservedDetail
 	public void insert(ReservedData rdata) {
 		try {
-			var con= DriverManager.getConnection(this.url,this.username,this.passwd);
+			var con= getConnection();
 			var st= con.createStatement();
 			String sql= String.format("select * from member where username='%s'",
 					rdata.getName());
@@ -136,7 +147,7 @@ public class DataBase {
 			e.printStackTrace();
 		} catch (MyException e) {
 			try {
-				var con= DriverManager.getConnection(this.url,this.username,this.passwd);
+				var con= getConnection();
 				var st= con.createStatement();
 				String sql1= String.format("insert into reservedDetail(username, deptno, date, time, number) values('%s', '%s', '%s', '%s', '%s');",
 						rdata.getName(),rdata.getDeptno(), rdata.getDate(), rdata.getTime(), rdata.getNumber());
@@ -153,7 +164,7 @@ public class DataBase {
 	public String[] loadData(String account, String passwd) {
 		try {
 			var treat= new Treat();
-			var con= DriverManager.getConnection(this.url,this.username,this.passwd);
+			var con= getConnection();
 			var st= con.createStatement();
 			String name="", mail="", phone="";
 			// MySQL(select data)
@@ -181,7 +192,7 @@ public class DataBase {
 			Date date= new Date();
 			String d= date.toString().substring(4,10);
 			var treat= new Treat();
-			var con= DriverManager.getConnection(this.url,this.username,this.passwd);
+			var con= getConnection();
 			var st= con.createStatement();
 			String name="",mail="",phone="",in="", out="";
 			// MySQL(select data)
@@ -229,7 +240,7 @@ public class DataBase {
 		String d= date.toString().substring(4,10);
 		String t= date.toString().substring(11,16);
 		try {
-			var con= DriverManager.getConnection(this.url,this.username,this.passwd);
+			var con= getConnection();
 			var st= con.createStatement();
 			st.executeUpdate("create table if not exists `"+d+"`(like IO);");
 	        var rs= st.executeQuery("select * from `"+d+"` where account='"+account+"';");
