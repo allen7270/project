@@ -20,6 +20,7 @@ function show(){
         xmlHTTP.send();
 }
 function punch(){
+	alert("打卡成功!");
     if(window.ActiveXObject){
         xmlHTTP=new ActiveXObject("Microsoft.XMLHTTP");
         }
@@ -36,11 +37,7 @@ function punch(){
             document.getElementById("passwd").innerText= ans[2];
             document.getElementById("mail").innerText= ans[3];	
             document.getElementById("phone").innerText= ans[4];
-            alert("打卡成功!");
         }
         }
         xmlHTTP.send();
-}
-function test(){
-    document.write("ok");
 }

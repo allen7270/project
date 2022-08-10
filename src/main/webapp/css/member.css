@@ -46,13 +46,15 @@
 .text{
     margin-top: 2%;
 }
-.punch{
+.button{
+    border:0;
+    background-color:rgba(0, 0, 0, 0); 
+    color: rgba(247, 247, 247, 0.863);
+    cursor:pointer;
     font-family: loginf;
     font-size: 2rem;
     margin-left: 2%;
-    text-decoration:none;
-    color: rgba(247, 247, 247, 0.863);
 }
-.punch:hover{
+.button:hover{
     color:rgb(255, 255, 255);
 }
