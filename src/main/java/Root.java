@@ -12,7 +12,12 @@ import javax.servlet.http.HttpServletResponse;
 import project.DataBase;
 
 /**
- * Servlet implementation class Root
+ * 
+ * @projectName project
+ * @className Root
+ * @author allen
+ * @date 2022年8月8日 下午2:45:53
+ * Servlet implementation class Login
  */
 @WebServlet("/Root")
 public class Root extends HttpServlet {
@@ -33,7 +38,7 @@ public class Root extends HttpServlet {
 		var dataBase= new DataBase();
 		String p=(String)request.getParameter("punch");
 		if(p.equals("null")) {
-			String[] data=dataBase.loadData(account, passwd);
+			String[] data=dataBase.loadPunchdata(account, passwd);
 			String dataA=String.join(",", data);
 			out.print(dataA);
 		}

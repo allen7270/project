@@ -9,7 +9,13 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
-
+/**
+ * 
+ * @projectName project
+ * @className DataBase
+ * @author allen
+ * @date 2022年8月3日 下午12:52:08
+ */
 public class DataBase {
 	private String username, passwd;
 	private String url= "jdbc:mysql://localhost:3306/project";
@@ -187,20 +193,33 @@ public class DataBase {
 				mail= rs.getString("mail");
 				phone= rs.getString("phone");
 			}
-			String sql1= String.format("select * from `"+d+"` where account='%s';",
-					account);
-			var rs1= st.executeQuery(sql1);
-			while(rs1.next()) {
-				in= rs1.getString("in");
-				out= rs1.getString("out");
+			String[] data0= {name, account, passwd, mail, phone, d,"",""};
+
+			// confirm punch table exists
+			var rs2= st.executeQuery("show tables like '"+d+"';");
+			String exists="";
+			if(rs2.next()) {
+				exists= rs2.getString(1);
+			} else {
+				exists="null";
 			}
-			String[] data= {name, account, passwd, mail, phone, d, in, out};
-			return data;
+			// show punch data
+			if(!exists.equals("null")) {
+				String sql1= String.format("select * from `"+d+"` where account='%s';",
+						account);
+				var rs1= st.executeQuery(sql1); 
+				while(rs1.next()) {
+					in= rs1.getString("in");
+					out= rs1.getString("out");
+				}
+				String[] data= {name, account, passwd, mail, phone, d, in, out};
+				return data;
+			} else {
+				return data0;
+			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
-			String[] data= {};
-			return data;
+			return null;
 		}
 	}
 
