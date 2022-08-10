@@ -58,3 +58,12 @@
 .button:hover{
     color:rgb(255, 255, 255);
 }
+.alter{
+    font-family: loginf;
+    text-decoration: none;
+    color: rgba(247, 247, 247, 0.863);
+    font-size: 2rem;
+}
+.alter:hover{
+    color:rgb(255, 255, 255);
+}
