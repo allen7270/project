@@ -209,6 +209,7 @@ public class DataBase {
 			// confirm punch table exists
 			var rs2= st.executeQuery("show tables like '"+d+"';");
 			String exists= rs2.next()? rs2.getString(1): "null";
+			// show punch data
 			if(!exists.equals("null")) {
 				String sql1= String.format("select * from `"+d+"` where account='%s';",
 						account);
