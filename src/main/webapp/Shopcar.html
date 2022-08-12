@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>會員註冊</title>
+    <style>
+        @import url(css/register.css) (max-width: 1399px);
+        @import url(css/register_w14.css) (min-width: 1399px);
+    </style>
+    <script src="js/shopcar.js"></script>
+</head>
+<body class="b" onload="showData()">
+    <div class="div1">
+        <ul>
+            <li><a class="index" href="Home.html" >首頁</a></li>
+            <li><a class="index" href="Reserved.html">線上訂位</a></li>
+            <li><a class="index" href="Menu.html">線上/場 點餐</a></li>
+            <li><a class="index" href="Login.html"style="color: rgba(0, 0, 0, 0.463)">會員專區</a></li>
+        </ul>
+    </div>
+    <div>
+        <div class="register">
+            <span>SHOPCAR</span>
+        </div>
+        <div style="float: left;width: 25%;">
+        <p><br></p>
+        </div>
+        <form name="dataForm" method="post" action="http://localhost:8080/project/Shopcar">
+            <fieldset class="account backdrop-blur" >
+                <table style="margin-left: 20%;">
+                    <tr style="font-size: 1.4rem;">
+                        <th>品項</th>
+                        <th>份數</th>
+                    </tr>
+                    <tr>
+                        <td>【老白湯鍋】家享幸福套餐-豬</td>
+                        <td id="set1">1</td>
+                    </tr>
+                    <tr>
+                        <td>【老辣香鍋】家享幸福套餐-豬</td>
+                        <td id="set2">1</td>
+                    </tr>
+                    <tr>
+                        <td>【無老白湯鍋】家享幸福禮盒-牛</td>
+                        <td id="set3">1</td>
+                    </tr>
+                    <tr>
+                        <td>五花去骨鮮牛</td>
+                        <td id="carte1">1</td>
+                    </tr>
+                    <tr>
+                        <td>嚴選雪花牛肉</td>
+                        <td id="carte2">1</td>
+                    </tr>
+                    <tr>
+                        <td>梅花豬肉</td>
+                        <td id="carte3">1</td>
+                    </tr>
+                    <tr>
+                        <td>田園嫩豚豬</td>
+                        <td id="carte4">1</td>
+                    </tr>
+                    <tr>
+                        <td>油條</td>
+                        <td  id="carte5">1</td>
+                    </tr>
+                    <tr>
+                        <td>讚岐烏龍麵</td>
+                        <td  id="carte6">1</td>
+                    </tr>
+                    <tr>
+                        <td>紫芋球</td>
+                        <td  id="carte7">1</td>
+                    </tr>
+                    <tr>
+                        <td>圓燕丸</td>
+                        <td  id="carte8">1</td>
+                    </tr>
+                </table>
+                
+                <p class="text" style="margin-bottom: 3%;">
+                    <input class="button" type="button" value="確認" onclick="check()">
+                    <input class="button" type="reset" value="重置">
+                </p>
+                <a class="member" href="Login.html">已是會員?點我登入!</a>
+            </fieldset>
+        </form>
+    </div>
+</body>
+</html>
