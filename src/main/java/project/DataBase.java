@@ -120,6 +120,36 @@ public class DataBase {
 		}
 	}
 	
+	// insert into orderDetail
+	public void order(ArrayList<String> data, OrderData orderData) {
+		try {
+			var con= getConnection();
+			var st= con.createStatement();
+			String sqlInfo= String.format("insert into orderInfo (`username`, `loc`, `mail`, `phone`) values('%s','%s','%s','%s');",
+					orderData.getUsername(), orderData.getLoc(), orderData.getMail(), orderData.getPhone());
+			st.executeUpdate(sqlInfo);
+			// if user name duplicate (catch SQLException)
+			String sqlDetail= String.format("insert into orderDetail (username, payno, set1, set2, set3, carte1, carte2, carte3, carte4, carte5, carte6, carte7, carte8) values('%s', '%s', %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);",
+					orderData.getUsername(), orderData.getPaymentmethod(), data.get(0), data.get(1), data.get(2), data.get(3), data.get(4), data.get(5), data.get(6), data.get(7), data.get(8), data.get(9), data.get(10));
+			st.executeUpdate(sqlDetail);
+		} catch (SQLException e) {
+			try {
+				var con= getConnection();
+				var st= con.createStatement();
+				// update Info
+				String sqlUpdateInfo= String.format("UPDATE orderInfo SET `loc` = '%s', `mail` = '%s', `phone` = '%s' WHERE `username` = '%s';",
+						orderData.getLoc(), orderData.getMail(), orderData.getPhone(), orderData.getUsername());
+				st.executeUpdate(sqlUpdateInfo);
+				String sqlDetail= String.format("insert into orderDetail (username, payno, set1, set2, set3, carte1, carte2, carte3, carte4, carte5, carte6, carte7, carte8) values('%s', '%s', %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);",
+						orderData.getUsername(),orderData.getPaymentmethod() ,data.get(0), data.get(1), data.get(2), data.get(3), data.get(4), data.get(5), data.get(6), data.get(7), data.get(8), data.get(9), data.get(10));
+				st.executeUpdate(sqlDetail);
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		}
+	}
+	
 	// insert into reservedDetail
 	public void insert(ReservedData rdata) {
 		try {
@@ -135,7 +165,7 @@ public class DataBase {
 	    			throw new MyException();
 	            }
 	        }
-			// non-member
+			// non-member(insert into member(id='I03'), reservedDetail)
 			String sql2= String.format("insert into member(id ,username, mail, phone) values('I03','%s', '%s', '%s');",
 					rdata.getName(), rdata.getMail(), rdata.getPhone());
         	st.executeUpdate(sql2);
@@ -147,12 +177,12 @@ public class DataBase {
 			e.printStackTrace();
 		} catch (MyException e) {
 			try {
+				// if member insert into reservedDetail
 				var con= getConnection();
 				var st= con.createStatement();
 				String sql1= String.format("insert into reservedDetail(username, deptno, date, time, number) values('%s', '%s', '%s', '%s', '%s');",
 						rdata.getName(),rdata.getDeptno(), rdata.getDate(), rdata.getTime(), rdata.getNumber());
 				st.executeUpdate(sql1);
-				
 			} catch (SQLException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
