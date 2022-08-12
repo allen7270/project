@@ -46,12 +46,13 @@ public class Checkout extends HttpServlet {
 		String loc= request.getParameter("loc");
 		String mail= request.getParameter("mail");
 		String phone= request.getParameter("phone");
-		String pay= request.getParameter("payMethod");
-		var orderData= new OrderData(username, pay, loc, mail, phone);
+		var orderData= new OrderData(username, loc, mail, phone);
 		var dataBase= new DataBase();
+		context.setAttribute("username", username);
 		dataBase.order(order, orderData);
 		// back to Menu.html
-		response.sendRedirect("Menu.html");
+		response.sendRedirect("Payment.html");
+		
 	}
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	}
