@@ -14,7 +14,6 @@ function check(){
     carte8= document.getElementById('carte8').value;
     if(!set1.length==0||!set2.length==0||!set3.length==0||!carte1.length==0||!carte2.length==0||!carte3.length==0||!carte4.length==0||!carte5.length==0||!carte6.length==0||!carte7.length==0||!carte8.length==0){
         document.orderForm.submit();
-        alert("點餐成功");
     } else{
         alert("份數未填寫!");
     }
