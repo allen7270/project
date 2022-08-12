@@ -5,9 +5,8 @@ import java.io.Serializable;
 public class OrderData implements Serializable {
 	private String username, paymentMethod, loc, mail, phone;
 	public OrderData() {}
-	public OrderData(String username, String paymentMethod, String loc, String mail, String phone) {
+	public OrderData(String username, String loc, String mail, String phone) {
 		this.username= username;
-		this.paymentMethod= paymentMethod;
 		this.loc= loc;
 		this.mail= mail;
 		this.phone= phone;
