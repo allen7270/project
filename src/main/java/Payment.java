@@ -13,7 +13,11 @@ import project.DataBase;
 import project.OrderData;
 
 /**
- * Servlet implementation class Payment
+ * 
+ * @projectName project
+ * @className Payment
+ * @author allen
+ * @date 2022年8月12日 下午2:21:22
  */
 @WebServlet("/Payment")
 public class Payment extends HttpServlet {

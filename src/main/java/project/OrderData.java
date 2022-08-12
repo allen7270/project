@@ -2,6 +2,13 @@ package project;
 
 import java.io.Serializable;
 
+/**
+ * 
+ * @projectName project
+ * @className OrderData
+ * @author allen
+ * @date 2022年8月12日 下午2:20:23
+ */
 public class OrderData implements Serializable {
 	private String username, paymentMethod, loc, mail, phone;
 	public OrderData() {}
