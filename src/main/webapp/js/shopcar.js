@@ -25,3 +25,19 @@ function showData(){
 		}
 		xmlHTTP.send();
 }
+function ok(){
+    if(window.ActiveXObject){
+		xmlHTTP=new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		else if(window.XMLHttpRequest){
+			xmlHTTP=new XMLHttpRequest();
+		}
+		xmlHTTP.open("get","http://localhost:8080/project/Shopcar?check=ok", true);
+		xmlHTTP.onreadystatechange=function check_status(){
+		if(xmlHTTP.readyState == 4 && xmlHTTP.status == 200){
+			var ans=xmlHTTP.responseText;
+            
+		}
+		}
+		xmlHTTP.send();
+}
