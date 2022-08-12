@@ -44,7 +44,6 @@ function check(){
     }
     // submit!!
     if(go){
-		alert("訂餐成功!");
         document.dataForm.submit();
     }
 }
