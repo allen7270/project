@@ -14,7 +14,11 @@ import javax.servlet.http.HttpServletResponse;
 import project.DataBase;
 
 /**
- * Servlet implementation class Order
+ * 
+ * @projectName project
+ * @className Checkout
+ * @author allen
+ * @date 2022年8月12日 上午8:30:21
  */
 @WebServlet("/Order")
 public class Order extends HttpServlet {

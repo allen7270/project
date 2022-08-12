@@ -11,7 +11,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class Shopcar
+ * 
+ * @projectName project
+ * @className Checkout
+ * @author allen
+ * @date 2022年8月12日 上午11:00:22
  */
 @WebServlet("/Shopcar")
 public class Shopcar extends HttpServlet {
@@ -32,6 +36,7 @@ public class Shopcar extends HttpServlet {
 			}
 		}
 		String dataA= String.join(",", order);
+		// back to shopcat.js(Ajax)
 		var out= response.getWriter();
 		out.print(dataA);
 	}
