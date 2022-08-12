@@ -129,8 +129,8 @@ public class DataBase {
 					orderData.getUsername(), orderData.getLoc(), orderData.getMail(), orderData.getPhone());
 			st.executeUpdate(sqlInfo);
 			// if user name duplicate (catch SQLException)
-			String sqlDetail= String.format("insert into orderDetail (username, payno, set1, set2, set3, carte1, carte2, carte3, carte4, carte5, carte6, carte7, carte8) values('%s', '%s', %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);",
-					orderData.getUsername(), orderData.getPaymentmethod(), data.get(0), data.get(1), data.get(2), data.get(3), data.get(4), data.get(5), data.get(6), data.get(7), data.get(8), data.get(9), data.get(10));
+			String sqlDetail= String.format("insert into orderDetail (username, set1, set2, set3, carte1, carte2, carte3, carte4, carte5, carte6, carte7, carte8) values('%s', %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);",
+					orderData.getUsername(), data.get(0), data.get(1), data.get(2), data.get(3), data.get(4), data.get(5), data.get(6), data.get(7), data.get(8), data.get(9), data.get(10));
 			st.executeUpdate(sqlDetail);
 		} catch (SQLException e) {
 			try {
@@ -140,13 +140,47 @@ public class DataBase {
 				String sqlUpdateInfo= String.format("UPDATE orderInfo SET `loc` = '%s', `mail` = '%s', `phone` = '%s' WHERE `username` = '%s';",
 						orderData.getLoc(), orderData.getMail(), orderData.getPhone(), orderData.getUsername());
 				st.executeUpdate(sqlUpdateInfo);
-				String sqlDetail= String.format("insert into orderDetail (username, payno, set1, set2, set3, carte1, carte2, carte3, carte4, carte5, carte6, carte7, carte8) values('%s', '%s', %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);",
-						orderData.getUsername(),orderData.getPaymentmethod() ,data.get(0), data.get(1), data.get(2), data.get(3), data.get(4), data.get(5), data.get(6), data.get(7), data.get(8), data.get(9), data.get(10));
+				String sqlDetail= String.format("insert into orderDetail (username, set1, set2, set3, carte1, carte2, carte3, carte4, carte5, carte6, carte7, carte8) values('%s', %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);",
+						orderData.getUsername(), data.get(0), data.get(1), data.get(2), data.get(3), data.get(4), data.get(5), data.get(6), data.get(7), data.get(8), data.get(9), data.get(10));
 				st.executeUpdate(sqlDetail);
 			} catch (SQLException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
+		}
+	}
+	
+	// show total
+	public String show(OrderData orderData) {
+		try {
+			var con= getConnection();
+			var st= con.createStatement();
+			String sql= String.format("SELECT SUM(`set1` * 1399 + `set2` * 1399 + `set3` * 1399 + `carte1` * 398 + `carte2` * 398 + `carte3` * 298 + `carte4` * 298 + `carte5` * 68 + `carte6` * 110 + `carte7` * 88 + `carte8` * 128) FROM orderDetail WHERE username = '%s';",
+					orderData.getUsername());
+			var rs=st.executeQuery(sql);
+			String sum="";
+			while(rs.next()) {
+				sum= rs.getString(1);
+			}
+			return sum;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
+	// update payment method
+	public void updatePay(OrderData orderData) {
+		try {
+			var con= getConnection();
+			var st= con.createStatement();
+			String sql= String.format("update orderDetail set payno='%s' where username='%s';",
+					orderData.getPaymentmethod(), orderData.getUsername());
+			st.executeUpdate(sql);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 	
