@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order</title>
+    <style>
+        @import url(css/member.css) (max-width: 1399px);
+        @import url(css/member_w14.css) (min-width: 1399px);
+    </style>
+    <script>
+        function check(){
+            tdname= document.getElementById('tdName');
+            tddate= document.getElementById('tdDate');
+            go= false;
+            if(tdname.value==""){
+                alert('名字未填寫!');
+                tdname.focus();
+                go= false;
+                return false;
+            } else{
+                go= true;
+            }
+            if(tddate.value==""){
+                alert('日期未填寫!');
+                tddate.focus();
+                go= false;
+                return false;
+            } else{
+                go= true;
+            }
+            if(go== true){
+                document.data.submit();
+            }
+        }
+        
+    </script>
+</head>
+<body class="b">
+    <div class="div1">
+        <ul>
+            <li><a class="index" href="Home.html" >首頁</a></li>
+            <li><a class="index" href="Reserved.html">線上訂位</a></li>
+            <li><a class="index" href="Menu.html" style="color: rgba(0, 0, 0, 0.463)">線上/場 點餐</a></li>
+            <li><a class="index" href="Login.html">會員專區</a></li>
+        </ul>
+    </div>
+    <div>
+        <div class="login">
+            <span>Order</span>
+        </div>
+        <div style="float: left;width: 25%;">
+        <p><br></p>
+        </div>
+        <form name="data" method="post" action="http://localhost:8080/project/Searchorder">
+            <fieldset class="account backdrop-blur">
+                <table style="margin-left: 25%;">
+                    <tr>
+                        <th>訂購姓名</th>
+                        <th>訂購日期</th>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="tdName" id="tdName"></td>
+                        <td><input type="text" name="tdDate" id="tdDate" placeholder="Aug 13"></td>
+                        <td><input type="button" class="button" value="確認" onclick="check()"></td>
+                    </tr>
+                    
+                </table>
+                
+            </fieldset>
+        </form>
+    </div>
+</body>
+</html>
