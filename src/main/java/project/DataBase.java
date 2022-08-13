@@ -54,18 +54,7 @@ public class DataBase {
 		try {
 			var con= getConnection();
 			var st= con.createStatement();
-			// MuSQL(create table)
-			st.executeUpdate("CREATE TABLE IF NOT EXISTS member (\n"
-					+ "    `id` VARCHAR(10) NOT NULL,\n"
-					+ "    `username` VARCHAR(20) NOT NULL,\n"
-					+ "    `account` VARCHAR(20) DEFAULT 'null',\n"
-					+ "    `passwd` VARCHAR(20) DEFAULT 'null',\n"
-					+ "    `mail` VARCHAR(20) NOT NULL,\n"
-					+ "    `phone` VARCHAR(20) NOT NULL,\n"
-					+ "    PRIMARY KEY (`username`),\n"
-					+ "    FOREIGN KEY (`id`)\n"
-					+ "        REFERENCES id (`idno`)\n"
-					+ ");");
+			
 			// MySQL(insert data)
 			String sql= String.format("insert into member(id ,username, account, passwd, mail, phone) values('I02','%s', '%s', '%s', '%s', '%s')",
 					data.getUsername(), data.getAccount(), data.getPasswd(), data.getMail(), data.getphone());
@@ -114,9 +103,9 @@ public class DataBase {
 	            	}
 	            } 
 	        }
-			return "";
+			return null;
 		} catch (SQLException e) {
-			return "";
+			return null;
 		}
 	}
 	
@@ -125,23 +114,27 @@ public class DataBase {
 		try {
 			var con= getConnection();
 			var st= con.createStatement();
+			Date date= new Date();
+			String day= date.toString().substring(4,10);
 			String sqlInfo= String.format("insert into orderInfo (`username`, `loc`, `mail`, `phone`) values('%s','%s','%s','%s');",
 					orderData.getUsername(), orderData.getLoc(), orderData.getMail(), orderData.getPhone());
 			st.executeUpdate(sqlInfo);
 			// if user name duplicate (catch SQLException)
-			String sqlDetail= String.format("insert into orderDetail (username, set1, set2, set3, carte1, carte2, carte3, carte4, carte5, carte6, carte7, carte8) values('%s', %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);",
-					orderData.getUsername(), data.get(0), data.get(1), data.get(2), data.get(3), data.get(4), data.get(5), data.get(6), data.get(7), data.get(8), data.get(9), data.get(10));
+			String sqlDetail= String.format("insert into orderDetail (username, date, set1, set2, set3, carte1, carte2, carte3, carte4, carte5, carte6, carte7, carte8) values('%s', '%s',%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);",
+					orderData.getUsername(), day, data.get(0), data.get(1), data.get(2), data.get(3), data.get(4), data.get(5), data.get(6), data.get(7), data.get(8), data.get(9), data.get(10));
 			st.executeUpdate(sqlDetail);
 		} catch (SQLException e) {
 			try {
 				var con= getConnection();
 				var st= con.createStatement();
+				Date date= new Date();
+				String day= date.toString().substring(4,10);
 				// update Info
 				String sqlUpdateInfo= String.format("UPDATE orderInfo SET `loc` = '%s', `mail` = '%s', `phone` = '%s' WHERE `username` = '%s';",
 						orderData.getLoc(), orderData.getMail(), orderData.getPhone(), orderData.getUsername());
 				st.executeUpdate(sqlUpdateInfo);
-				String sqlDetail= String.format("insert into orderDetail (username, set1, set2, set3, carte1, carte2, carte3, carte4, carte5, carte6, carte7, carte8) values('%s', %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);",
-						orderData.getUsername(), data.get(0), data.get(1), data.get(2), data.get(3), data.get(4), data.get(5), data.get(6), data.get(7), data.get(8), data.get(9), data.get(10));
+				String sqlDetail= String.format("insert into orderDetail (username, date, set1, set2, set3, carte1, carte2, carte3, carte4, carte5, carte6, carte7, carte8) values('%s', '%s',%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);",
+						orderData.getUsername(), day, data.get(0), data.get(1), data.get(2), data.get(3), data.get(4), data.get(5), data.get(6), data.get(7), data.get(8), data.get(9), data.get(10));
 				st.executeUpdate(sqlDetail);
 			} catch (SQLException e1) {
 				// TODO Auto-generated catch block
@@ -189,6 +182,7 @@ public class DataBase {
 		try {
 			var con= getConnection();
 			var st= con.createStatement();
+			
 			String sql= String.format("select * from member where username='%s'",
 					rdata.getName());
 			var rs= st.executeQuery(sql);
@@ -296,22 +290,22 @@ public class DataBase {
 	// root punch
 	public void punch(String account) {
 		Date date= new Date();
-		String d= date.toString().substring(4,10);
-		String t= date.toString().substring(11,16);
+		String day= date.toString().substring(4,10);
+		String time= date.toString().substring(11,16);
 		try {
 			var con= getConnection();
 			var st= con.createStatement();
-			st.executeUpdate("create table if not exists `"+d+"`(like IO);");
-	        var rs= st.executeQuery("select * from `"+d+"` where account='"+account+"';");
+			st.executeUpdate("create table if not exists `"+day+"`(like IO);");
+	        var rs= st.executeQuery("select * from `"+day+"` where account='"+account+"';");
 	        String i="null";
 	        while(rs.next()) {
 	            i=rs.getString("in");
 	        }
 	        if(!i.equals("null")) {
-	        	st.executeUpdate("update `"+d+"` set `out`='"+t+"' where account='"+account+"';");
+	        	st.executeUpdate("update `"+day+"` set `out`='"+time+"' where account='"+account+"';");
 	        } 
 	        else {
-	        	st.executeUpdate("insert into `"+d+"` (`account`,`in`) values ('"+account+"', '"+t+"')");
+	        	st.executeUpdate("insert into `"+day+"` (`account`,`in`) values ('"+account+"', '"+time+"')");
 	        }
 	        st.close();
 	        con.close();
