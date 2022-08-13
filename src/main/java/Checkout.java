@@ -41,7 +41,7 @@ public class Checkout extends HttpServlet {
 				order.set(i, "0");
 			}
 		}
-		// orDerInfo
+		// orderInfo
 		String username= request.getParameter("username");
 		String loc= request.getParameter("loc");
 		String mail= request.getParameter("mail");
