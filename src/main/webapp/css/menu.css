@@ -73,6 +73,7 @@
     font-size: 2rem;
     margin-left: 2%;
     margin-top: 4%;
+    text-decoration: none;
 }
 .button:hover{
     color:rgb(255, 255, 255);
