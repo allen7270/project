@@ -21,6 +21,7 @@ function showData(){
             document.getElementById("carte6").innerText= ans[8];
             document.getElementById("carte7").innerText= ans[9];
             document.getElementById("carte8").innerText= ans[10];
+			document.getElementById("check").href= ans[11];
 		}
 		}
 		xmlHTTP.send();
