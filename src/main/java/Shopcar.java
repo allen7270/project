@@ -29,12 +29,25 @@ public class Shopcar extends HttpServlet {
 		var context= scf.getServletContext();
 		var order= new ArrayList<String>();
 		String[] data= {"set1","set2","set3","carte1","carte2","carte3","carte4","carte5","carte6","carte7","carte8"};
+		String account;
+		String page="";
+		try {
+			account = (String) context.getAttribute("account");
+			if(!account.equals("null")) {
+				// 缺寫入mysql orderDetail
+				page= "empty.html";
+			}
+		} catch (Exception e) {
+			page= "Checkout.html";
+		}
+		
 		for(int i=0; i<data.length; i++) {
 			order.add((String) context.getAttribute(data[i]));
 			if(order.get(i).equals("")) {
 				order.set(i, "0");
 			}
 		}
+		order.add(page);
 		String dataA= String.join(",", order);
 		// back to shopcat.js(Ajax)
 		var out= response.getWriter();
