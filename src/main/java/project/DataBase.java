@@ -111,7 +111,7 @@ public class DataBase {
 		}
 	}
 	
-	// insert into orderDetail
+	// insert into orderDetail(online)
 	public void order(ArrayList<String> data, OrderData orderData) {
 		try {
 			var con= getConnection();
@@ -122,8 +122,8 @@ public class DataBase {
 					orderData.getUsername(), orderData.getLoc(), orderData.getMail(), orderData.getPhone());
 			st.executeUpdate(sqlInfo);
 			// if user name duplicate (catch SQLException)
-			String sqlDetail= String.format("insert into orderDetail (username, date, set1, set2, set3, carte1, carte2, carte3, carte4, carte5, carte6, carte7, carte8) values('%s', '%s',%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);",
-					orderData.getUsername(), day, data.get(0), data.get(1), data.get(2), data.get(3), data.get(4), data.get(5), data.get(6), data.get(7), data.get(8), data.get(9), data.get(10));
+			String sqlDetail= String.format("insert into orderDetail (username, orderno, date, set1, set2, set3, carte1, carte2, carte3, carte4, carte5, carte6, carte7, carte8) values('%s', '%s', '%s', %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);",
+					orderData.getUsername(), "0", day, data.get(0), data.get(1), data.get(2), data.get(3), data.get(4), data.get(5), data.get(6), data.get(7), data.get(8), data.get(9), data.get(10));
 			st.executeUpdate(sqlDetail);
 		} catch (SQLException e) {
 			try {
@@ -135,8 +135,8 @@ public class DataBase {
 				String sqlUpdateInfo= String.format("UPDATE orderInfo SET `loc` = '%s', `mail` = '%s', `phone` = '%s' WHERE `username` = '%s';",
 						orderData.getLoc(), orderData.getMail(), orderData.getPhone(), orderData.getUsername());
 				st.executeUpdate(sqlUpdateInfo);
-				String sqlDetail= String.format("insert into orderDetail (username, date, set1, set2, set3, carte1, carte2, carte3, carte4, carte5, carte6, carte7, carte8) values('%s', '%s',%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);",
-						orderData.getUsername(), day, data.get(0), data.get(1), data.get(2), data.get(3), data.get(4), data.get(5), data.get(6), data.get(7), data.get(8), data.get(9), data.get(10));
+				String sqlDetail= String.format("insert into orderDetail (username, orderno, date, set1, set2, set3, carte1, carte2, carte3, carte4, carte5, carte6, carte7, carte8) values('%s', '%s', '%s', %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);",
+						orderData.getUsername(), "0", day, data.get(0), data.get(1), data.get(2), data.get(3), data.get(4), data.get(5), data.get(6), data.get(7), data.get(8), data.get(9), data.get(10));
 				st.executeUpdate(sqlDetail);
 			} catch (SQLException e1) {
 				// TODO Auto-generated catch block
@@ -190,6 +190,23 @@ public class DataBase {
 			e.printStackTrace();
 		}
 	}
+	
+	// insert into orderDetail(onsite)
+	public void orderSite(ArrayList<String> data, String account) {
+		var con= getConnection();
+		try {
+			var st= con.createStatement();
+			Date date= new Date();
+			String day= date.toString().substring(4,10);
+			String sqlDetail= String.format("insert into orderDetail (username, orderno, date, set1, set2, set3, carte1, carte2, carte3, carte4, carte5, carte6, carte7, carte8) values('%s', '%s', '%s', %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);",
+					account, "1", day, data.get(0), data.get(1), data.get(2), data.get(3), data.get(4), data.get(5), data.get(6), data.get(7), data.get(8), data.get(9), data.get(10));
+			st.executeUpdate(sqlDetail);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
 	
 	// show order
 	public ArrayList<String> searchOrder(String name, String date) {
