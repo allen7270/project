@@ -219,8 +219,8 @@ public class DataBase {
 			var data= new ArrayList<String>();
 			while(rs.next()) {
 				payno=rs.getString("payno");
-				for(int i=1; i<=19; i++) {
-					if(i==3||i==16) {
+				for(int i=1; i<=20; i++) {
+					if(i==3||i==5||i==17) {
 						continue;
 					}
 					data.add(rs.getString(i));
