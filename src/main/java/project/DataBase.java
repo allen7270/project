@@ -38,6 +38,7 @@ public class DataBase {
 			e.printStackTrace();
 		} 
 	}
+	
 	// Connection to MySQL
 	public Connection getConnection() {
 		try {
@@ -49,6 +50,7 @@ public class DataBase {
 			return null;
 		}
 	}
+	
 	// input data to database
 	public void add(Data data) {
 		try {
@@ -187,6 +189,35 @@ public class DataBase {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	
+	// show order
+	public ArrayList<String> searchOrder(String name, String date) {
+		var con= getConnection();
+		try {
+			var st= con.createStatement();
+			String sql= String.format("select * from orderDetail d join orderInfo n on d.username= n.username where d.username='%s' and d.date='%s';", name, date);
+			var rs= st.executeQuery(sql);
+			String payno="0";
+			var data= new ArrayList<String>();
+			while(rs.next()) {
+				payno=rs.getString("payno");
+				for(int i=1; i<=19; i++) {
+					if(i==3||i==16) {
+						continue;
+					}
+					data.add(rs.getString(i));
+				}
+			}
+			var rs1= st.executeQuery("select `paymentMethod` from paymentMethod p where p.payno='"+payno+"';");
+			while(rs1.next()) {
+				payno=rs1.getString("paymentMethod");
+			}data.add(payno);
+			return data;
+		} catch (SQLException e) {
+			return null;
+		}
+		
 	}
 	
 	// insert into reservedDetail
