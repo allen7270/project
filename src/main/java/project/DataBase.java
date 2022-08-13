@@ -148,8 +148,14 @@ public class DataBase {
 		try {
 			var con= getConnection();
 			var st= con.createStatement();
-			String sql= String.format("SELECT SUM(`set1` * 1399 + `set2` * 1399 + `set3` * 1399 + `carte1` * 398 + `carte2` * 398 + `carte3` * 298 + `carte4` * 298 + `carte5` * 68 + `carte6` * 110 + `carte7` * 88 + `carte8` * 128) FROM orderDetail WHERE username = '%s';",
-					orderData.getUsername());
+			// get orderDetail(`no`)
+			int no=0;
+			var rs1=st.executeQuery("select `no` from orderDetail WHERE username = '"+orderData.getUsername()+"';");
+			while(rs1.next()) {
+				no= rs1.getInt("no");
+			}
+			String sql= String.format("SELECT SUM(`set1` * 1399 + `set2` * 1399 + `set3` * 1399 + `carte1` * 398 + `carte2` * 398 + `carte3` * 298 + `carte4` * 298 + `carte5` * 68 + `carte6` * 110 + `carte7` * 88 + `carte8` * 128) FROM orderDetail WHERE `no` = %d;",
+					no);
 			var rs=st.executeQuery(sql);
 			String sum="";
 			while(rs.next()) {
@@ -168,8 +174,14 @@ public class DataBase {
 		try {
 			var con= getConnection();
 			var st= con.createStatement();
-			String sql= String.format("update orderDetail set payno='%s' where username='%s';",
-					orderData.getPaymentmethod(), orderData.getUsername());
+			// get orderDetail(`no`)
+			int no=0;
+			var rs1=st.executeQuery("select `no` from orderDetail WHERE username = '"+orderData.getUsername()+"';");
+			while(rs1.next()) {
+				no= rs1.getInt("no");
+			}
+			String sql= String.format("update orderDetail set payno='%s' where no= %d;",
+					orderData.getPaymentmethod(), no);
 			st.executeUpdate(sql);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
