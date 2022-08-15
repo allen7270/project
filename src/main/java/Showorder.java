@@ -38,9 +38,9 @@ public class Showorder extends HttpServlet {
 		var dataA=dataBase.searchOrder(name, date);
 		String[] menu= {"s1","s2","s3","c1","c2","c3","c4","c5","c6","c7","c8"};
 		var map= new HashMap<String, String>();
-		for(int i=3; i<14; i++) {
+		for(int i=3, j=0; i<14; i++) {
 			if(!dataA.get(i).equals("0")) {
-				map.put(menu[i-3], dataA.get(i));
+				map.put(menu[j], dataA.get(i));
 			}
 		}
 		var al= new ArrayList<String>();
