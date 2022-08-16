@@ -213,28 +213,69 @@ public class DataBase {
 		var con= getConnection();
 		try {
 			var st= con.createStatement();
-			String sql= String.format("select * from orderDetail d join orderInfo n on d.username= n.username where d.username='%s' and d.date='%s';", name, date);
+			String sql= String.format("select `set1`,`set2`,`set3`,`carte1`,`carte2`,`carte3`,`carte4`,`carte5`,`carte6`,`carte7`,`carte8` from orderDetail d join orderInfo n on d.username= n.username where d.username='%s' and d.date='%s';",
+					name, date);
 			var rs= st.executeQuery(sql);
-			String payno="0";
 			var data= new ArrayList<String>();
+			String[] titel= {"set1","set2","set3","carte1","carte2","carte3","carte4","carte5","carte6","carte7","carte8"};
 			while(rs.next()) {
-				payno=rs.getString("payno");
-				for(int i=1; i<=20; i++) {
-					if(i==3||i==5||i==17) {
-						continue;
-					}
-					data.add(rs.getString(i));
+				for(int i=0; i<titel.length; i++) {
+					data.add(rs.getString(titel[i]));
 				}
 			}
-			var rs1= st.executeQuery("select `paymentMethod` from paymentMethod p where p.payno='"+payno+"';");
-			while(rs1.next()) {
-				payno=rs1.getString("paymentMethod");
-			}data.add(payno);
 			return data;
 		} catch (SQLException e) {
 			return null;
 		}
 		
+	}
+	
+	// show orderInfo
+	public ArrayList<String> orderInfo(String name) {
+		var con= getConnection();
+		try {
+			var st= con.createStatement();
+			String sql= String.format("SELECT * FROM project.orderInfo where username='%s';",
+					name);
+			var rs= st.executeQuery(sql);
+			var data= new ArrayList<String>();
+			
+			while(rs.next()) {
+				data.add(rs.getString("loc"));
+				data.add(rs.getString("mail"));
+				data.add(rs.getString("phone"));
+			}
+			return data;
+		} catch (SQLException e) {
+			return null;
+		}
+	}
+	
+	// show payment method
+	public ArrayList<String> paymethod(String name, String date) {
+		var con= getConnection();
+		try {
+			var st= con.createStatement();
+			String sql= String.format("select `payno` from orderDetail where username='%s' and date='%s';",
+					name, date);
+			var rs= st.executeQuery(sql);
+			String payno="";
+			var data= new ArrayList<String>();
+			
+			while(rs.next()) {
+				data.add(rs.getString("payno"));
+			}
+			var pay= new ArrayList<String>();
+			for(int i=0; i<data.size(); i++) {
+				var rs1= st.executeQuery("select `paymentMethod` from paymentMethod p where p.payno='"+data.get(i)+"';");
+				while(rs1.next()) {
+					payno=rs1.getString("paymentMethod");
+				} pay.add(payno);
+			}
+			return pay;
+		} catch (SQLException e) {
+			return null;
+		}
 	}
 	
 	// insert into reservedDetail
