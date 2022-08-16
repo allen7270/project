@@ -82,6 +82,7 @@ public class DataBase {
 		}
 	}
 	
+	// show member data
 	public ArrayList<String> showMember() {
 		var con= getConnection();
 		try {
@@ -107,6 +108,44 @@ public class DataBase {
 		
 	}
 	
+	//show order data
+	public ArrayList<String> showOrder(){
+		var con= getConnection();
+		try {
+			var st= con.createStatement();
+			String sql= "SELECT * FROM orderDetail where `orderno`='0';";
+			var rs= st.executeQuery(sql);
+			var data= new ArrayList<String>();
+			while(rs.next()) {
+				for(int i=6; i<17; i++) {
+					data.add(rs.getString(i));
+				}
+			}
+			return data;
+		} catch (SQLException e) {
+			return null;
+		}
+	}
+	
+	//show order Info
+	public ArrayList<String> showOrderInfo(){
+		var con= getConnection();
+		try {
+			var st= con.createStatement();
+			String sql= "SELECT * FROM orderDetail where `orderno`='0';";
+			var rs= st.executeQuery(sql);
+			var data= new ArrayList<String>();
+			while(rs.next()) {
+				for(int i=1; i<5; i++) {
+					data.add(rs.getString(i));
+				}
+			}
+			return data;
+		} catch (SQLException e) {
+			return null;
+		}
+	}
+	
 	// verify data from database
 	public String verify(String account, String passwd){
 		try {
@@ -121,7 +160,6 @@ public class DataBase {
 	            String accountDB= rs.getString("account");
 	            String passwdDB= rs.getString("passwd");
 	            if(accountDB.length()>0||passwdDB.length()>0) {
-//	            	return true;
 	            	String id= rs.getString("id");
 	            	if(id.equals("I01")) {
 	            		return "root";
@@ -231,7 +269,6 @@ public class DataBase {
 			e.printStackTrace();
 		}
 	}
-	
 	
 	// show order
 	public ArrayList<String> searchOrder(String name, String date) {
@@ -344,7 +381,7 @@ public class DataBase {
 		}
 	}
 	
-	// loading data
+	// loading data Info
 	public String[] loadData(String account, String passwd) {
 		try {
 			var treat= new Treat();
@@ -422,32 +459,6 @@ public class DataBase {
 	        } 
 	        else {
 	        	st.executeUpdate("insert into `"+day+"` (`account`,`in`) values ('"+account+"', '"+time+"')");
-	        }
-	        st.close();
-	        con.close();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-	// root punch
-	public void punch1(String account) {
-		Date date= new Date();
-		String day= date.toString().substring(4,10);
-		String time= date.toString().substring(11,16);
-		try {
-			var con= getConnection();
-			var st= con.createStatement();
-	        var rs= st.executeQuery("select * from punch where account='"+account+"';");
-	        String i="null";
-	        while(rs.next()) {
-	            i=rs.getString("in");
-	        }
-	        if(!i.equals("null")) {
-	        	st.executeUpdate("update punch set `out`='"+time+"' where account='"+account+"';");
-	        } 
-	        else {
-	        	st.executeUpdate("insert into punch (`date`, `account`,`in`) values ('"+day+"','"+account+"', '"+time+"')");
 	        }
 	        st.close();
 	        con.close();
