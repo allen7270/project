@@ -27,7 +27,7 @@
         <div style="float: left;width: 25%;">
         <p><br></p>
         </div>
-        <form>
+        <form method="post" action="http://localhost:8080/project/Root.jsp">
             <fieldset class="account backdrop-blur">
                 <p class="text"  ><label for="username">姓名:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label><span id="username"></span></p>
                 <p class="text"  ><label for="account">帳號:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label><span id="account"></span></p>
@@ -40,7 +40,7 @@
                 <p class="text" style="margin-bottom: 3%;"></p>
 
                 <input type="button" class="button" value="員工打卡" onclick="punch()">
-                <input type="button" class="button" value="修改會員資料" onclick="alter()">
+                <input type="submit" class="button" value="顯示會員資料">
             </fieldset>
         </form>
     </div>
