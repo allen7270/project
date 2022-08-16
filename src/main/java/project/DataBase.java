@@ -130,9 +130,9 @@ public class DataBase {
 	            	}
 	            } 
 	        }
-			return null;
+			return "error";
 		} catch (SQLException e) {
-			return null;
+			return "error";
 		}
 	}
 	
