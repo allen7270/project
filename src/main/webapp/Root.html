@@ -27,7 +27,6 @@
         <div style="float: left;width: 25%;">
         <p><br></p>
         </div>
-        <form method="post" action="http://localhost:8080/project/Root.jsp">
             <fieldset class="account backdrop-blur">
                 <p class="text"  ><label for="username">姓名:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label><span id="username"></span></p>
                 <p class="text"  ><label for="account">帳號:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label><span id="account"></span></p>
@@ -38,9 +37,13 @@
                 <p class="text" ><label for="in">上班:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label><span id="in"></span></p>
                 <p class="text" ><label for="out">下班:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label><span id="out"></span></p>
                 <p class="text" style="margin-bottom: 3%;"></p>
-
+                <form method="post" action="http://localhost:8080/project/RootMember.jsp">
                 <input type="button" class="button" value="員工打卡" onclick="punch()">
-                <input type="submit" class="button" value="顯示會員資料">
+                <input type="submit" class="button" value="會員資料">
+                </form>
+                <form method="post" action="http://localhost:8080/project/RootOrderOnline.jsp">
+                    <input type="submit" class="button" value="線上訂單">
+                </form>
             </fieldset>
         </form>
     </div>
