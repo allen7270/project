@@ -18,20 +18,24 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet("/Searchorder")
 public class Searchorder extends HttpServlet {
-	ServletConfig cfg;
-	public void init(ServletConfig cfg) throws ServletException{
-		super.init(cfg);
-		this.cfg= cfg;
-	}
+//	ServletConfig cfg;
+//	public void init(ServletConfig cfg) throws ServletException{
+//		super.init(cfg);
+//		this.cfg= cfg;
+//	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html; charset=utf-8");
-		var context= cfg.getServletContext();
+//		var context= cfg.getServletContext();
 		String name= request.getParameter("tdName");
 		String date= request.getParameter("tdDate");
-		context.setAttribute("name", name);
-		context.setAttribute("date", date);
-		response.sendRedirect("Showorder.html");
+//		context.setAttribute("name", name);
+//		context.setAttribute("date", date);
+//		response.sendRedirect("Showorder.html");
+		var session= request.getSession();
+		session.setAttribute("name", name);
+		session.setAttribute("date", date);
+		response.sendRedirect("Showorder.jsp");
 	}
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	}
