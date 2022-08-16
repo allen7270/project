@@ -363,25 +363,15 @@ public class DataBase {
 				mail= rs.getString("mail");
 				phone= rs.getString("phone");
 			}
-			String[] data0= {name, account, passwd, mail, phone, d,"",""};
-
-			// confirm punch table exists
-			var rs2= st.executeQuery("show tables like '"+d+"';");
-			String exists= rs2.next()? rs2.getString(1): "null";
-			// show punch data
-			if(!exists.equals("null")) {
-				String sql1= String.format("select * from `"+d+"` where account='%s';",
-						account);
-				var rs1= st.executeQuery(sql1); 
-				while(rs1.next()) {
-					in= rs1.getString("in");
-					out= rs1.getString("out");
-				}
-				String[] data= {name, account, passwd, mail, phone, d, in, out};
-				return data;
-			} else {
-				return data0;
+			String sql1= String.format("select * from punch where account='%s';", 
+					account);
+			var rs1= st.executeQuery(sql1); 
+			while(rs1.next()) {
+				in= rs1.getString("in");
+				out= rs1.getString("out");
 			}
+			String[] data= {name, account, passwd, mail, phone, d, in, out};
+			return data;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			return null;
@@ -407,6 +397,32 @@ public class DataBase {
 	        } 
 	        else {
 	        	st.executeUpdate("insert into `"+day+"` (`account`,`in`) values ('"+account+"', '"+time+"')");
+	        }
+	        st.close();
+	        con.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	// root punch
+	public void punch1(String account) {
+		Date date= new Date();
+		String day= date.toString().substring(4,10);
+		String time= date.toString().substring(11,16);
+		try {
+			var con= getConnection();
+			var st= con.createStatement();
+	        var rs= st.executeQuery("select * from punch where account='"+account+"';");
+	        String i="null";
+	        while(rs.next()) {
+	            i=rs.getString("in");
+	        }
+	        if(!i.equals("null")) {
+	        	st.executeUpdate("update punch set `out`='"+time+"' where account='"+account+"';");
+	        } 
+	        else {
+	        	st.executeUpdate("insert into punch (`date`, `account`,`in`) values ('"+day+"','"+account+"', '"+time+"')");
 	        }
 	        st.close();
 	        con.close();

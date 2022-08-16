@@ -43,7 +43,7 @@ public class Root extends HttpServlet {
 			out.print(dataA);
 		}
 		else if(p.equals("true")) {
-			dataBase.punch(account);
+			dataBase.punch1(account);
 			String[] data=dataBase.loadPunchdata(account, passwd);
 			String dataA=String.join(",", data);
 			out.print(dataA);
