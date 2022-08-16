@@ -12,9 +12,8 @@
         @import url(css/member.css) (max-width: 1399px);
         @import url(css/member_w14.css) (min-width: 1399px);
     </style>
-    <script src="js/root.js"></script>
 </head>
-<body class="b" onload="show()">
+<body class="b">
     <div class="div1">
         <ul>
             <li><a class="index" href="Home.html" >首頁</a></li>
@@ -43,7 +42,6 @@
                     <%
                     	DataBase dataBase= new DataBase();
                     	ArrayList<String> data= dataBase.showMember();
-                    	System.out.println(data);
                     	double record=data.size()/5;
                     	for(int i=0; i<record; i++){
                     		out.print("<tr>");
@@ -57,6 +55,7 @@
                     %>
                 </table>
                 <p class="text" style="margin-bottom: 3%;"></p>
+                <a href="Root.html" class="alter">管理員首頁</a>
                 <input type="button" class="button" value="修改會員資料" onclick="alter()">
             </fieldset>
         </form>
