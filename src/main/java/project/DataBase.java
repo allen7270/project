@@ -51,7 +51,7 @@ public class DataBase {
 		}
 	}
 	
-	// input data to database
+	// input data to member
 	public void add(Data data) {
 		try {
 			var con= getConnection();
@@ -80,6 +80,31 @@ public class DataBase {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	
+	public ArrayList<String> showMember() {
+		var con= getConnection();
+		try {
+			var st= con.createStatement();
+			String sql= "SELECT * FROM member;";
+			var rs= st.executeQuery(sql);
+			var data= new ArrayList<String>();
+			var treat= new Treat();
+			while(rs.next()) {
+				String id= rs.getString("id");
+				if(id.equals("I02")) {
+					data.add(rs.getString("username"));
+					data.add(rs.getString("account"));
+					data.add(treat.decrypt(rs.getString("passwd")));
+					data.add(rs.getString("mail"));
+					data.add(rs.getString("phone"));
+				}
+			}
+			return data;
+		} catch (SQLException e) {
+			return null;
+		}
+		
 	}
 	
 	// verify data from database
@@ -145,7 +170,7 @@ public class DataBase {
 		}
 	}
 	
-	// show total
+	// show total cost
 	public String show(OrderData orderData) {
 		try {
 			var con= getConnection();
