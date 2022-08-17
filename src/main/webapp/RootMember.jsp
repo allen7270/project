@@ -42,14 +42,15 @@
                     <%
                     	DataBase dataBase= new DataBase();
                     	ArrayList<String> data= dataBase.showMember();
+                    	// dataNumber is data column
+                    	int dataNumber=5;
+                    	// record is data row
                     	double record=data.size()/5;
                     	for(int i=0; i<record; i++){
                     		out.print("<tr>");
-                    		out.print("<td>"+data.get(0+(5*i))+"</td>");
-                    		out.print("<td>"+data.get(1+(5*i))+"</td>");
-                    		out.print("<td>"+data.get(2+(5*i))+"</td>");
-                    		out.print("<td>"+data.get(3+(5*i))+"</td>");
-                    		out.print("<td>"+data.get(4+(5*i))+"</td>");
+                    		for(int j=0; j<dataNumber; j++){
+                    			out.print("<td>"+data.get(j+(dataNumber*i))+"</td>");
+                    		}
                     		out.print("</tr>");
                     	}
                     %>
