@@ -146,6 +146,32 @@ public class DataBase {
 		}
 	}
 	
+	// show reserved data
+	public ArrayList<String> showReservrd(){
+		var con= getConnection();
+		try {
+			var st= con.createStatement();
+			String sql= "select `no`, r.username,`deptno`,`date`,`time`,`number`,`mail`,`phone` from reservedDetail r join member m on r.username= m.username;";
+			var rs= st.executeQuery(sql);
+			var data= new ArrayList<String>();
+			while(rs.next()) {
+				data.add(Integer.toString(rs.getInt("no")));
+				data.add(rs.getString("username"));
+				data.add(rs.getString("deptno"));
+				data.add(rs.getString("date"));
+				data.add(rs.getString("time"));
+				data.add(rs.getString("number"));
+				data.add(rs.getString("mail"));
+				data.add(rs.getString("phone"));
+			}
+			return data;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
 	// verify data from database
 	public String verify(String account, String passwd){
 		try {
