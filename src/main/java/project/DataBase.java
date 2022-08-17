@@ -411,7 +411,7 @@ public class DataBase {
 	public String[] loadPunchdata(String account, String passwd) {
 		try {
 			Date date= new Date();
-			String d= date.toString().substring(4,10);
+			String day= date.toString().substring(4,10);
 			var treat= new Treat();
 			var con= getConnection();
 			var st= con.createStatement();
@@ -432,39 +432,37 @@ public class DataBase {
 				in= rs1.getString("in");
 				out= rs1.getString("out");
 			}
-			String[] data= {name, account, passwd, mail, phone, d, in, out};
+			String[] data= {name, account, passwd, mail, phone, day, in, out};
 			return data;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			return null;
 		}
 	}
-
 	// root punch
-	public void punch(String account) {
-		Date date= new Date();
-		String day= date.toString().substring(4,10);
-		String time= date.toString().substring(11,16);
-		try {
-			var con= getConnection();
-			var st= con.createStatement();
-			st.executeUpdate("create table if not exists `"+day+"`(like IO);");
-	        var rs= st.executeQuery("select * from `"+day+"` where account='"+account+"';");
-	        String i="null";
-	        while(rs.next()) {
-	            i=rs.getString("in");
-	        }
-	        if(!i.equals("null")) {
-	        	st.executeUpdate("update `"+day+"` set `out`='"+time+"' where account='"+account+"';");
-	        } 
-	        else {
-	        	st.executeUpdate("insert into `"+day+"` (`account`,`in`) values ('"+account+"', '"+time+"')");
-	        }
-	        st.close();
-	        con.close();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		public void punch(String account) {
+			Date date= new Date();
+			String day= date.toString().substring(4,10);
+			String time= date.toString().substring(11,16);
+			try {
+				var con= getConnection();
+				var st= con.createStatement();
+		        var rs= st.executeQuery("select * from punch where account='"+account+"' and date= '"+day+"';");
+		        String i="null";
+		        while(rs.next()) {
+		            i=rs.getString("in");
+		        }
+		        if(!i.equals("null")) {
+		        	st.executeUpdate("update punch set `out`='"+time+"' where account='"+account+"';");
+		        } 
+		        else {
+		        	st.executeUpdate("insert into punch (`date`, `account`,`in`) values ('"+day+"','"+account+"', '"+time+"')");
+		        }
+		        st.close();
+		        con.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
-	}
 }
