@@ -108,7 +108,7 @@ public class DataBase {
 		
 	}
 	
-	//show order data
+	// show order data
 	public ArrayList<String> showOrder(){
 		var con= getConnection();
 		try {
@@ -127,7 +127,7 @@ public class DataBase {
 		}
 	}
 	
-	//show order Info
+	// show order Info
 	public ArrayList<String> showOrderInfo(){
 		var con= getConnection();
 		try {
@@ -163,6 +163,27 @@ public class DataBase {
 				data.add(rs.getString("number"));
 				data.add(rs.getString("mail"));
 				data.add(rs.getString("phone"));
+			}
+			return data;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
+	// show punch data
+	public ArrayList<String> showPunch(){
+		var con= getConnection();
+		try {
+			var st= con.createStatement();
+			String sql="SELECT * FROM punch;";
+			var rs= st.executeQuery(sql);
+			var data= new ArrayList<String>();
+			while(rs.next()) {
+				for(int i=1; i<5; i++) {
+				data.add(rs.getString(i));
+				}
 			}
 			return data;
 		} catch (SQLException e) {
@@ -476,10 +497,10 @@ public class DataBase {
 		        var rs= st.executeQuery("select * from punch where account='"+account+"' and date= '"+day+"';");
 		        String i="null";
 		        while(rs.next()) {
-		            i=rs.getString("in");
+		            i=rs.getString("date");
 		        }
 		        if(!i.equals("null")) {
-		        	st.executeUpdate("update punch set `out`='"+time+"' where account='"+account+"';");
+		        	st.executeUpdate("update punch set `out`='"+time+"' where account='"+account+"' and date='"+day+"';");
 		        } 
 		        else {
 		        	st.executeUpdate("insert into punch (`date`, `account`,`in`) values ('"+day+"','"+account+"', '"+time+"')");
