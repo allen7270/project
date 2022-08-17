@@ -37,12 +37,16 @@
                 <p class="text" ><label for="in">上班:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label><span id="in"></span></p>
                 <p class="text" ><label for="out">下班:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label><span id="out"></span></p>
                 <p class="text" style="margin-bottom: 3%;"></p>
+
                 <form style="display: inline;" method="post" action="http://localhost:8080/project/RootMember.jsp">
                 <input type="button" class="button" value="員工打卡" onclick="punch()">
                 <input type="submit" class="button" value="會員資料">
                 </form>
                 <form style="display: inline;" method="post" action="http://localhost:8080/project/RootOrderOnline.jsp">
                     <input type="submit" class="button" value="線上訂單">
+                </form>
+                <form style="display: inline;" method="post" action="http://localhost:8080/project/RootReserved.jsp">
+                    <input type="submit" class="button" value="線上訂位">
                 </form>
             </fieldset>
         </form>
