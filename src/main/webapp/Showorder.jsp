@@ -37,7 +37,7 @@
                         <th>訂購姓名</th>
                         <th>訂購日期</th>
                         <th>送貨地址</th>
-                        <th>送貨信箱</th>
+                        <th>訂購信箱</th>
                         <th>訂購電話</th>
                         <th>付款方式</th>
                         <th>訂餐內容</th>
@@ -73,8 +73,6 @@
                     		out.print("<td name='tdMail' id='tdMail'>"+Info.get(1)+"</td>");
                     		out.print("<td name='tdCell' id='tdCell'>"+Info.get(2)+"</td>");
                     		out.print("<td name='tdPay' id='tdPay'>"+pay.get(i)+"</td>");
-                    		System.out.println("i:"+i);
-                    		System.out.println("itemA[i]:"+itemA[i]);
                     		out.print("<td name='tdItem' id='tdItem'>"+itemA[i]+"</td>");
                 		}
                    		out.print("</tr>");
