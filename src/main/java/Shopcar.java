@@ -34,7 +34,6 @@ public class Shopcar extends HttpServlet {
 		try {
 			account = (String) context.getAttribute("account");
 			if(!account.equals("null")) {
-				// 缺寫入mysql orderDetail
 				page= "empty.html";
 			}
 		} catch (Exception e) {
