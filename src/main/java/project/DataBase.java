@@ -109,15 +109,15 @@ public class DataBase {
 	}
 	
 	// show order data
-	public ArrayList<String> showOrder(){
+	public ArrayList<String> showOnlineOrder(){
 		var con= getConnection();
 		try {
 			var st= con.createStatement();
-			String sql= "SELECT * FROM orderDetail where `orderno`='0';";
+			String sql= "SELECT * FROM onlineOrderDetail;";
 			var rs= st.executeQuery(sql);
 			var data= new ArrayList<String>();
 			while(rs.next()) {
-				for(int i=6; i<17; i++) {
+				for(int i=5; i<16; i++) {
 					data.add(rs.getString(i));
 				}
 			}
@@ -128,11 +128,11 @@ public class DataBase {
 	}
 	
 	// show order Info
-	public ArrayList<String> showOrderInfo(){
+	public ArrayList<String> showOnlineOrderInfo(){
 		var con= getConnection();
 		try {
 			var st= con.createStatement();
-			String sql= "SELECT * FROM orderDetail where `orderno`='0';";
+			String sql= "SELECT * FROM onlineOrderDetail;";
 			var rs= st.executeQuery(sql);
 			var data= new ArrayList<String>();
 			while(rs.next()) {
@@ -232,8 +232,8 @@ public class DataBase {
 					orderData.getUsername(), orderData.getLoc(), orderData.getMail(), orderData.getPhone());
 			st.executeUpdate(sqlInfo);
 			// if user name duplicate (catch SQLException)
-			String sqlDetail= String.format("insert into orderDetail (username, orderno, date, set1, set2, set3, carte1, carte2, carte3, carte4, carte5, carte6, carte7, carte8) values('%s', '%s', '%s', %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);",
-					orderData.getUsername(), "0", day, data.get(0), data.get(1), data.get(2), data.get(3), data.get(4), data.get(5), data.get(6), data.get(7), data.get(8), data.get(9), data.get(10));
+			String sqlDetail= String.format("insert into onlineOrderDetail (username, date, set1, set2, set3, carte1, carte2, carte3, carte4, carte5, carte6, carte7, carte8) values('%s', '%s', %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);",
+					orderData.getUsername(), day, data.get(0), data.get(1), data.get(2), data.get(3), data.get(4), data.get(5), data.get(6), data.get(7), data.get(8), data.get(9), data.get(10));
 			st.executeUpdate(sqlDetail);
 		} catch (SQLException e) {
 			try {
@@ -245,8 +245,8 @@ public class DataBase {
 				String sqlUpdateInfo= String.format("UPDATE orderInfo SET `loc` = '%s', `mail` = '%s', `phone` = '%s' WHERE `username` = '%s';",
 						orderData.getLoc(), orderData.getMail(), orderData.getPhone(), orderData.getUsername());
 				st.executeUpdate(sqlUpdateInfo);
-				String sqlDetail= String.format("insert into orderDetail (username, orderno, date, set1, set2, set3, carte1, carte2, carte3, carte4, carte5, carte6, carte7, carte8) values('%s', '%s', '%s', %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);",
-						orderData.getUsername(), "0", day, data.get(0), data.get(1), data.get(2), data.get(3), data.get(4), data.get(5), data.get(6), data.get(7), data.get(8), data.get(9), data.get(10));
+				String sqlDetail= String.format("insert into onlineOrderDetail (username, date, set1, set2, set3, carte1, carte2, carte3, carte4, carte5, carte6, carte7, carte8) values('%s', '%s', %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);",
+						orderData.getUsername(), day, data.get(0), data.get(1), data.get(2), data.get(3), data.get(4), data.get(5), data.get(6), data.get(7), data.get(8), data.get(9), data.get(10));
 				st.executeUpdate(sqlDetail);
 			} catch (SQLException e1) {
 				// TODO Auto-generated catch block
@@ -262,11 +262,11 @@ public class DataBase {
 			var st= con.createStatement();
 			// get orderDetail(`no`)
 			int no=0;
-			var rs1=st.executeQuery("select `no` from orderDetail WHERE username = '"+orderData.getUsername()+"';");
+			var rs1=st.executeQuery("select `no` from onlineOrderDetail WHERE username = '"+orderData.getUsername()+"';");
 			while(rs1.next()) {
 				no= rs1.getInt("no");
 			}
-			String sql= String.format("SELECT SUM(`set1` * 1399 + `set2` * 1399 + `set3` * 1399 + `carte1` * 398 + `carte2` * 398 + `carte3` * 298 + `carte4` * 298 + `carte5` * 68 + `carte6` * 110 + `carte7` * 88 + `carte8` * 128) FROM orderDetail WHERE `no` = %d;",
+			String sql= String.format("SELECT SUM(`set1` * 1399 + `set2` * 1399 + `set3` * 1399 + `carte1` * 398 + `carte2` * 398 + `carte3` * 298 + `carte4` * 298 + `carte5` * 68 + `carte6` * 110 + `carte7` * 88 + `carte8` * 128) FROM onlineOrderDetail WHERE `no` = %d;",
 					no);
 			var rs=st.executeQuery(sql);
 			String sum="";
@@ -288,11 +288,11 @@ public class DataBase {
 			var st= con.createStatement();
 			// get orderDetail(`no`)
 			int no=0;
-			var rs1=st.executeQuery("select `no` from orderDetail WHERE username = '"+orderData.getUsername()+"';");
+			var rs1=st.executeQuery("select `no` from onlineOrderDetail WHERE username = '"+orderData.getUsername()+"';");
 			while(rs1.next()) {
 				no= rs1.getInt("no");
 			}
-			String sql= String.format("update orderDetail set payno='%s' where no= %d;",
+			String sql= String.format("update onlineOrderDetail set payno='%s' where no= %d;",
 					orderData.getPaymentmethod(), no);
 			st.executeUpdate(sql);
 		} catch (SQLException e) {
@@ -308,8 +308,8 @@ public class DataBase {
 			var st= con.createStatement();
 			Date date= new Date();
 			String day= date.toString().substring(4,10);
-			String sqlDetail= String.format("insert into orderDetail (username, orderno, date, set1, set2, set3, carte1, carte2, carte3, carte4, carte5, carte6, carte7, carte8) values('%s', '%s', '%s', %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);",
-					account, "1", day, data.get(0), data.get(1), data.get(2), data.get(3), data.get(4), data.get(5), data.get(6), data.get(7), data.get(8), data.get(9), data.get(10));
+			String sqlDetail= String.format("insert into onsiteOrderDetail (username, date, set1, set2, set3, carte1, carte2, carte3, carte4, carte5, carte6, carte7, carte8) values('%s', '%s', %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);",
+					account, day, data.get(0), data.get(1), data.get(2), data.get(3), data.get(4), data.get(5), data.get(6), data.get(7), data.get(8), data.get(9), data.get(10));
 			st.executeUpdate(sqlDetail);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -322,7 +322,7 @@ public class DataBase {
 		var con= getConnection();
 		try {
 			var st= con.createStatement();
-			String sql= String.format("select `set1`,`set2`,`set3`,`carte1`,`carte2`,`carte3`,`carte4`,`carte5`,`carte6`,`carte7`,`carte8` from orderDetail d join orderInfo n on d.username= n.username where d.username='%s' and d.date='%s';",
+			String sql= String.format("select `set1`,`set2`,`set3`,`carte1`,`carte2`,`carte3`,`carte4`,`carte5`,`carte6`,`carte7`,`carte8` from onlineOrderDetail d join orderInfo n on d.username= n.username where d.username='%s' and d.date='%s';",
 					name, date);
 			var rs= st.executeQuery(sql);
 			var data= new ArrayList<String>();
@@ -344,7 +344,7 @@ public class DataBase {
 		var con= getConnection();
 		try {
 			var st= con.createStatement();
-			String sql= String.format("SELECT * FROM project.orderInfo where username='%s';",
+			String sql= String.format("SELECT * FROM orderInfo where username='%s';",
 					name);
 			var rs= st.executeQuery(sql);
 			var data= new ArrayList<String>();
@@ -365,7 +365,7 @@ public class DataBase {
 		var con= getConnection();
 		try {
 			var st= con.createStatement();
-			String sql= String.format("select `payno` from orderDetail where username='%s' and date='%s';",
+			String sql= String.format("select `payno` from onlineOrderDetail where username='%s' and date='%s';",
 					name, date);
 			var rs= st.executeQuery(sql);
 			String payno="";
