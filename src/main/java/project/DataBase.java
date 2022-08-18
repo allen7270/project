@@ -82,7 +82,7 @@ public class DataBase {
 		}
 	}
 	
-	// show member data
+	// Root-show member data
 	public ArrayList<String> showMember() {
 		var con= getConnection();
 		try {
@@ -108,7 +108,7 @@ public class DataBase {
 		
 	}
 	
-	// show order data
+	// Root-show online order data
 	public ArrayList<String> showOnlineOrder(){
 		var con= getConnection();
 		try {
@@ -127,7 +127,25 @@ public class DataBase {
 		}
 	}
 	
-	// show order Info
+	// Root-show onsite order data
+	public ArrayList<String> showOnsiteOrder(){
+		var con= getConnection();
+		try {
+			var st= con.createStatement();
+			String sql= "SELECT * FROM onsiteOrderDetail;";
+			var rs= st.executeQuery(sql);
+			var data= new ArrayList<String>();
+			while(rs.next()) {
+				for(int i=4; i<15; i++) {
+					data.add(rs.getString(i));
+				}
+			}
+			return data;
+		} catch (SQLException e) {
+			return null;
+		}
+	}
+	// Root-show online order Info
 	public ArrayList<String> showOnlineOrderInfo(){
 		var con= getConnection();
 		try {
@@ -146,7 +164,26 @@ public class DataBase {
 		}
 	}
 	
-	// show reserved data
+	// Root-show online order Info
+	public ArrayList<String> showOnsiteOrderInfo(){
+		var con= getConnection();
+		try {
+			var st= con.createStatement();
+			String sql= "SELECT * FROM onsiteOrderDetail;";
+			var rs= st.executeQuery(sql);
+			var data= new ArrayList<String>();
+			while(rs.next()) {
+				data.add(Integer.toString(rs.getInt("no")));
+				data.add(rs.getString("date"));
+				data.add(rs.getString("username"));
+			}
+			return data;
+		} catch (SQLException e) {
+			return null;
+		}
+	}
+	
+	// Root-show reserved data
 	public ArrayList<String> showReservrd(){
 		var con= getConnection();
 		try {
@@ -172,7 +209,7 @@ public class DataBase {
 		}
 	}
 	
-	// show punch data
+	// Root-show punch data
 	public ArrayList<String> showPunch(){
 		var con= getConnection();
 		try {
@@ -486,8 +523,9 @@ public class DataBase {
 			return null;
 		}
 	}
+	
 	// root punch
-		public void punch(String account) {
+	public void punch(String account) {
 			Date date= new Date();
 			String day= date.toString().substring(4,10);
 			String time= date.toString().substring(11,16);
