@@ -472,8 +472,8 @@ public class DataBase {
 				mail= rs.getString("mail");
 				phone= rs.getString("phone");
 			}
-			String sql1= String.format("select * from punch where account='%s';", 
-					account);
+			String sql1= String.format("select * from punch where account='%s' and date='%s';", 
+					account,day);
 			var rs1= st.executeQuery(sql1); 
 			while(rs1.next()) {
 				in= rs1.getString("in");
