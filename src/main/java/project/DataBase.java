@@ -145,6 +145,7 @@ public class DataBase {
 			return null;
 		}
 	}
+	
 	// Root-show online order Info
 	public ArrayList<String> showOnlineOrderInfo(){
 		var con= getConnection();
@@ -221,6 +222,48 @@ public class DataBase {
 				for(int i=1; i<5; i++) {
 				data.add(rs.getString(i));
 				}
+			}
+			return data;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
+	// Root-Alter member data- show number account
+	public ArrayList<String> showMemberAccount(){
+		var con= getConnection();
+		try {
+			var st= con.createStatement();
+			String sql="SELECT account FROM member WHERE id='I02';";
+			var rs= st.executeQuery(sql);
+			var data= new ArrayList<String>();
+			while(rs.next()) {
+			data.add(rs.getString("account"));
+			}
+			return data;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
+	// Root-Alter member data- show number name, passwd, mail, phone
+	public ArrayList<String> showMemberDetail(){
+		var con= getConnection();
+		try {
+			var st= con.createStatement();
+			String sql="SELECT username, passwd, mail, phone FROM member WHERE id='I02';";
+			var rs= st.executeQuery(sql);
+			var data= new ArrayList<String>();
+			var treat= new Treat();
+			while(rs.next()) {
+			data.add(rs.getString("username"));
+			data.add(treat.decrypt(rs.getString("passwd")));
+			data.add(rs.getString("mail"));
+			data.add(rs.getString("phone"));
 			}
 			return data;
 		} catch (SQLException e) {
