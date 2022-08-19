@@ -61,9 +61,9 @@
                     	double record=info.size()/column;
                     	for(int i=0; i<record; i++){
                     		out.print("<tr>");
-                    		for(int j=0; j<record; j++){
-                    			out.print("<td>"+info.get(j+(3*i))+"</td>");
-                    		}
+                    		out.print("<td>"+info.get(0+(column*i))+"</td>");
+                    		out.print("<td>"+info.get(1+(column*i))+"</td>");
+                    		out.print("<td>"+info.get(2+(column*i))+"</td>");
                     		out.print("<td>"+itemA[i]+"</td>");
                     		out.print("</tr>");
                     	}
