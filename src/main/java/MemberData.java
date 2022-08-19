@@ -28,10 +28,6 @@ public class MemberData extends HttpServlet {
 		for(int i=0; i<column; i++) {
 			dataA.add(data.get(i+(column*username)));
 		}
-//		dataA.add(data.get(0+(column*username)));
-//		dataA.add(data.get(1+(column*username)));
-//		dataA.add(data.get(2+(column*username)));
-//		dataA.add(data.get(3+(column*username)));
 		var out= response.getWriter();
 		out.print(String.join(",", dataA));
 	}
