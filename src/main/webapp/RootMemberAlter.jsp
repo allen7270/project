@@ -26,69 +26,72 @@
         <div class="login">
             <span>Root-Member</span>
         </div>
-        <div style="float: left;width: 23%;">
+        <div style="float: left;width: 11%;">
         <p><br></p>
         </div>
         <fieldset class="account backdrop-blur">
-            <table width="700">
-                <tr>
-                    <th>帳號</th>
-                    <th>姓名</th>
-                    <th>密碼</th>
-                    <th>信箱</th>
-                    <th>電話</th>
-                </tr>
-                <tr>
-                <%
-                    DataBase dataBase= new DataBase();
-                    ArrayList<String> data= dataBase.showMemberAccount();
-                    String username="allen";
-                    out.print("<td><select onchange='show()' name='account' id='account'>");
-                    out.print("<option>請選擇</option>");
-                    for(int i=0; i<data.size(); i++){
-                        out.print("<option value='"+i+"'>"+data.get(i)+"</option>");
-                    }
-                    out.print("</td></select>");
-                %>
-                <script>
-			        function show(){
-			        	optionValue= document.getElementById('account').value;
-			            // Ajax- get data
-			        	if(window.ActiveXObject){
-			        		xmlHTTP=new ActiveXObject("Microsoft.XMLHTTP");
-			       		}
-			       		else if(window.XMLHttpRequest){
-			       			xmlHTTP=new XMLHttpRequest();
-			       		}
-			       		xmlHTTP.open('post','http://localhost:8080/project/MemberData?username='+optionValue+'', true);
-			       		
-			       		xmlHTTP.onreadystatechange=function check_status(){
-			       		if(xmlHTTP.readyState == 4 && xmlHTTP.status == 200){
-			       			var ans=xmlHTTP.responseText;
-			       			ans=ans.split(',');
-			       			document.getElementById('username').innerText=ans[0];
-			       			document.getElementById('passwd').innerText=ans[1];
-			       			document.getElementById('mail').innerText=ans[2];
-			       			document.getElementById('phone').innerText=ans[3];
-			       		}
-			       		}
-			       		xmlHTTP.send();
-			        }
-			    </script>
-                	<td name="username" id="username"></td>
-                	<td name="passwd" id="passwd"></td>
-                	<td name="mail" id="mail"></td>
-                	<td name="phone" id="phone"></td>
-                </tr>
-            </table>
-            <p class="text" style="margin-bottom: 3%;"></p>
-            
-            <!--undone-->
-            <form  method="post" action="http://localhost:8080/project/RootMemberAlter.jsp"></form>
+        	<!--undone-->
+            <form  method="post" action="http://localhost:8080/project/RootMemberAlterSubmit">
+	            <table width="990" style="margin-left: 15px;">
+	                <tr>
+	                    <th>帳號</th>
+	                    <th>姓名</th>
+	                    <th>密碼</th>
+	                    <th>信箱</th>
+	                    <th>電話</th>
+	                </tr>
+	                <tr>
+	                <%
+	                    DataBase dataBase= new DataBase();
+	                    ArrayList<String> data= dataBase.showMemberAccount();
+	                    String username="allen";
+	                    out.print("<td><select onchange='show()' name='account' id='account'>");
+	                    out.print("<option>請選擇</option>");
+	                    for(int i=0; i<data.size(); i++){
+	                        out.print("<option value='"+i+"'>"+data.get(i)+"</option>");
+	                    }
+	                    out.print("</td></select>");
+	                %>
+	                <script>
+				        function show(){
+				        	optionValue= document.getElementById('account').value;
+				            // Ajax- get data
+				        	if(window.ActiveXObject){
+				        		xmlHTTP=new ActiveXObject("Microsoft.XMLHTTP");
+				       		}
+				       		else if(window.XMLHttpRequest){
+				       			xmlHTTP=new XMLHttpRequest();
+				       		}
+				       		xmlHTTP.open('post','http://localhost:8080/project/MemberData?username='+optionValue+'', true);
+				       		
+				       		xmlHTTP.onreadystatechange=function check_status(){
+				       		if(xmlHTTP.readyState == 4 && xmlHTTP.status == 200){
+				       			var ans=xmlHTTP.responseText;
+				       			ans=ans.split(',');
+				       			document.getElementById('username').innerHTML='<input type="text" name="username" readonly value="'+ans[0]+'">';
+				       			document.getElementById('passwd').innerHTML='<input type="text" name="passwd" value="'+ans[1]+'">';
+				       			document.getElementById('mail').innerHTML='<input name="mail" type="text" value="'+ans[2]+'">';
+				       			document.getElementById('phone').innerHTML='<input name="phone" type="text" value="'+ans[3]+'">';
+				       			document.getElementById('account').value=optionValue;
+				       			
+				       		}
+				       		}
+				       		xmlHTTP.send();
+				        }
+				    </script>
+	                	<td id="username"></td>
+	                	<td id="passwd"></td>
+	                	<td id="mail"></td>
+	                	<td id="phone"></td>
+	                </tr>
+	            </table>
+	            <p class="text" style="margin-bottom: 3%;"></p>
                 <a href="Root.html" class="alter">管理員首頁</a>
+                <!-- submit account(optionValue) -->
+                <input type="hidden" name="account" id="account">
                 <input type="submit" class="button" value="確認">
-            </fieldset>
-        </form>
+            </form>
+        </fieldset>
     </div>
 </body>
 </html>
