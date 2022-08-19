@@ -12,6 +12,7 @@
         @import url(css/member.css) (max-width: 1399px);
         @import url(css/member_w14.css) (min-width: 1399px);
     </style>
+    <script src="js/rootAlter.js"></script>
 </head>
 <body class="b">
     <div class="div1">
@@ -31,7 +32,7 @@
         </div>
         <fieldset class="account backdrop-blur">
         	<!--undone-->
-            <form  method="post" action="http://localhost:8080/project/RootMemberAlterSubmit">
+            <form name="data"  method="post" action="http://localhost:8080/project/RootMemberAlterSubmit">
 	            <table width="990" style="margin-left: 15px;">
 	                <tr>
 	                    <th>帳號</th>
@@ -69,9 +70,9 @@
 				       			var ans=xmlHTTP.responseText;
 				       			ans=ans.split(',');
 				       			document.getElementById('username').innerHTML='<input type="text" name="username" readonly value="'+ans[0]+'">';
-				       			document.getElementById('passwd').innerHTML='<input type="text" name="passwd" value="'+ans[1]+'">';
-				       			document.getElementById('mail').innerHTML='<input name="mail" type="text" value="'+ans[2]+'">';
-				       			document.getElementById('phone').innerHTML='<input name="phone" type="text" value="'+ans[3]+'">';
+				       			document.getElementById('passwd').innerHTML='<input type="text" name="passwd" id="passwdIn" placeholder=" 至少5位元" value="'+ans[1]+'">';
+				       			document.getElementById('mail').innerHTML='<input name="mail" type="text" id="mailIn" placeholder=" xxx@xxx.xxx" value="'+ans[2]+'">';
+				       			document.getElementById('phone').innerHTML='<input name="phone" type="text" id="phoneIn" placeholder=" 手機號碼" value="'+ans[3]+'">';
 				       			document.getElementById('account').value=optionValue;
 				       			
 				       		}
@@ -89,7 +90,7 @@
                 <a href="Root.html" class="alter">管理員首頁</a>
                 <!-- submit account(optionValue) -->
                 <input type="hidden" name="account" id="account">
-                <input type="submit" class="button" value="確認">
+                <input type="button" class="button" value="確認" onclick="check()">
             </form>
         </fieldset>
     </div>
