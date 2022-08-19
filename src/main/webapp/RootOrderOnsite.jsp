@@ -57,12 +57,13 @@
           					k++;
           				}
                			String[] itemA= item.split(";");
-                    	double record=info.size()/3;
+               			int column= 3;
+                    	double record=info.size()/column;
                     	for(int i=0; i<record; i++){
                     		out.print("<tr>");
-                    		out.print("<td>"+info.get(0+(4*i))+"</td>");
-                    		out.print("<td>"+info.get(1+(4*i))+"</td>");
-                    		out.print("<td>"+info.get(2+(4*i))+"</td>");
+                    		for(int j=0; j<record; j++){
+                    			out.print("<td>"+info.get(j+(3*i))+"</td>");
+                    		}
                     		out.print("<td>"+itemA[i]+"</td>");
                     		out.print("</tr>");
                     	}
