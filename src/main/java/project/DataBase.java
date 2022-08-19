@@ -67,7 +67,7 @@ public class DataBase {
 		}
 	}
 	
-	// update member data to database
+	// update member data 
 	public void alter(Data data, String passwdAlter) {
 		try {
 			var treat= new Treat();
@@ -106,6 +106,21 @@ public class DataBase {
 			return null;
 		}
 		
+	}
+	
+	// Root-update member data
+	public void rootAltermamber(Data data){
+		try {
+			var treat= new Treat();
+			var con= getConnection();
+			var st= con.createStatement();
+			String sql= String.format("update member set passwd='%s',mail='%s', phone='%s' where account ='%s' and username='%s';",
+					treat.Encryption(data.getPasswd()), data.getMail(), data.getphone(),data.getAccount(),data.getUsername());
+			st.execute(sql);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	// Root-show online order data
