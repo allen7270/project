@@ -27,34 +27,33 @@
         <div style="float: left;width: 25%;">
         <p><br></p>
         </div>
-            <fieldset class="account backdrop-blur">
-                <form style="display: inline;" method="post" action="http://localhost:8080/project/RootMember.jsp">
-                    <input type="submit" class="button" value="會員資料">
-                </form>
-                <form style="display: inline;" method="post" action="http://localhost:8080/project/RootOrderOnline.jsp">
-                    <input type="submit" class="button" value="線上訂單">
-                </form>
-                <form style="display: inline;" method="post" action="http://localhost:8080/project/RootOrderOnsite.jsp">
-                    <input type="submit" class="button" value="線場訂單">
-                </form>
-                <form style="display: inline;" method="post" action="http://localhost:8080/project/RootReserved.jsp">
-                    <input type="submit" class="button" value="線上訂位">
-                </form>
-                <form style="display: inline;" method="post" action="http://localhost:8080/project/RootPunch.jsp">
-                    <input type="submit" class="button" value="打卡資料">
-                </form>
-                <p class="text"  ><label for="username">姓名:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label><span id="username"></span></p>
-                <p class="text"  ><label for="account">帳號:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label><span id="account"></span></p>
-                <p class="text"  ><label for="passwd">密碼:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label><span id="passwd"></span></p>
-                <p class="text"  ><label for="mail">信箱:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label><span id="mail"></span></p>
-                <p class="text" ><label for="phone">電話:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label><span id="phone"></span></p>
-                <p class="text" ><label for="in">日期:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label><span id="date"></span></p>
-                <p class="text" ><label for="in">上班:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label><span id="in"></span></p>
-                <p class="text" ><label for="out">下班:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label><span id="out"></span></p>
-                <p class="text" style="margin-bottom: 3%;"></p>
-                <input type="button" class="button" value="員工打卡" onclick="punch()">
-            </fieldset>
-        </form>
+        <fieldset class="account backdrop-blur" style="margin-bottom:4%;">
+            <form style="display: inline;" method="post" action="http://localhost:8080/project/RootMember.jsp">
+                <input type="submit" class="button" value="會員資料">
+            </form>
+            <form style="display: inline;" method="post" action="http://localhost:8080/project/RootOrderOnline.jsp">
+                <input type="submit" class="button" value="線上訂單">
+            </form>
+            <form style="display: inline;" method="post" action="http://localhost:8080/project/RootOrderOnsite.jsp">
+                <input type="submit" class="button" value="線場訂單">
+            </form>
+            <form style="display: inline;" method="post" action="http://localhost:8080/project/RootReserved.jsp">
+                <input type="submit" class="button" value="線上訂位">
+            </form>
+            <form style="display: inline;" method="post" action="http://localhost:8080/project/RootPunch.jsp">
+                <input type="submit" class="button" value="打卡資料">
+            </form>
+            <p class="text">姓名:<span id="username" style="margin-left: 10px;"></span></p>
+            <p class="text">帳號:<span id="account" style="margin-left: 10px;"></span></p>
+            <p class="text">密碼:<span id="passwd" style="margin-left: 10px;"></span></p>
+            <p class="text">信箱:<span id="mail" style="margin-left: 10px;"></span></p>
+            <p class="text">電話:<span id="phone" style="margin-left: 10px;"></span></p>
+            <p class="text">日期:<span id="date" style="margin-left: 10px;"></span></p>
+            <p class="text">上班:<span id="in" style="margin-left: 10px;"></span></p>
+            <p class="text">下班:<span id="out" style="margin-left: 10px;"></span></p>
+            <p class="text" style="margin-bottom: 3%;"></p>
+            <input type="button" class="button" value="員工打卡" onclick="punch()">
+        </fieldset>
     </div>
 </body>
 </html>
