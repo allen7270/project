@@ -79,7 +79,7 @@
                         %>
                 </table>
                 <p style="margin-bottom: 3%;"></p>
-                <a href="Searchorder.html" class="alter"><img src="css/image/refresh.svg"  width="3%"></a>
+                <a href="Searchorder.html" class="alter"><img src="css/image/autorenew_white_24dp.svg"  width="3%"></a>
             </fieldset>
         </form>
     </div>
