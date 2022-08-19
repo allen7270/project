@@ -7,18 +7,11 @@
     padding-top: 10px;
     padding-bottom: 10px;
 }
-.set{
-    width: 30%;
-    float: left;
-}
 .text{
+    color: rgba(0, 0, 0, 0.463);
     font-size: 1.2rem;
     font-family: art;
-    width: 60%;
-    background: linear-gradient(to right, #f7f7f7db,rgba(93, 93, 93, 0.861));
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+    width: 50%;
 }
 #footer{
     background-color:rgba(0, 0, 0, 0.166);
@@ -31,35 +24,29 @@
     padding-top: 3%;
 }
 .title1{
-    color: white;
-    text-shadow: 2px 2px gray;
-    writing-mode:vertical-rl; 
-    font-size: 5rem;
-    font-family: indexf;
+    color: rgba(0, 0, 0, 0.463);
+    font-size: 4rem;
+    font-family: loginf;
 }
 .text-set{
     text-align: center;
     font-family: 'Noto Sans TC', sans-serif;
-    color: rgb(255, 255, 255);
 }
 .p-form{
-    float: left;
     font-size: 1.5rem;
 }
 .span-form{
-    color: rgba(206, 206, 116, 0.881);
+    color: darkorange;
 }
 .radio-set{
-    float: left;
-    width: 14%;
-    padding-left: 17%;
+    padding-left: 40%;
 }
 .form-s{
     float: left;
     width: 15%;
 }
-.b{
-    background-image:url(https://images.unsplash.com/photo-1523305846158-488dedcf8629?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nzh8fG1vdW5hdGluc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=1400&q=60);
+body{
+    background-image:url(https://images.unsplash.com/photo-1586075010923-2dd4570fb338?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTIyfHx3aGl0ZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=1400&q=60);
     background-position: center;
     background-repeat: none;
     background-attachment: fixed;
@@ -67,7 +54,7 @@
 .button{
     border:0;
     background-color:rgba(0, 0, 0, 0); 
-    color: rgba(247, 247, 247, 0.863);
+    color: black;
     cursor:pointer;
     font-family: loginf;
     font-size: 2rem;
@@ -76,5 +63,6 @@
     text-decoration: none;
 }
 .button:hover{
-    color:rgb(255, 255, 255);
+    color: darkorange;
+    /* color:black; */
 }
