@@ -29,37 +29,38 @@
         <div style="float: left;width: 23%;">
         <p><br></p>
         </div>
-        <form method="post" action="http://localhost:8080/project/RootMember.jsp">
-            <fieldset class="account backdrop-blur">
-                <table width="700">
-                    <tr>
-                        <th>姓名</th>
-                        <th>帳號</th>
-                        <th>密碼</th>
-                        <th>信箱</th>
-                        <th>電話</th>
-                    </tr>
-                    <%
-                    	DataBase dataBase= new DataBase();
-                    	ArrayList<String> data= dataBase.showMember();
-                    	// dataNumber is data column
-                    	int dataNumber=5;
-                    	// record is data row
-                    	double record=data.size()/5;
-                    	for(int i=0; i<record; i++){
-                    		out.print("<tr>");
-                    		for(int j=0; j<dataNumber; j++){
-                    			out.print("<td>"+data.get(j+(dataNumber*i))+"</td>");
-                    		}
-                    		out.print("</tr>");
-                    	}
-                    %>
-                </table>
-                <p class="text" style="margin-bottom: 3%;"></p>
+        <fieldset class="account backdrop-blur">
+            <table width="700">
+                <tr>
+                    <th>姓名</th>
+                    <th>帳號</th>
+                    <th>密碼</th>
+                    <th>信箱</th>
+                    <th>電話</th>
+                </tr>
+                <%
+                    DataBase dataBase= new DataBase();
+                    ArrayList<String> data= dataBase.showMember();
+                    // dataNumber is data column
+                    int dataNumber=5;
+                    // record is data row
+                    double record=data.size()/5;
+                    for(int i=0; i<record; i++){
+                        out.print("<tr>");
+                        for(int j=0; j<dataNumber; j++){
+                            out.print("<td>"+data.get(j+(dataNumber*i))+"</td>");
+                        }
+                        out.print("</tr>");
+                    }
+                %>
+            </table>
+            <p class="text" style="margin-bottom: 3%;"></p>
+            <form method="post" action="http://localhost:8080/project/RootMemberAlter.jsp">
                 <a href="Root.html" class="alter">管理員首頁</a>
-                <input type="button" class="button" value="修改會員資料" onclick="alter()">
-            </fieldset>
-        </form>
+                <input type="submit" class="button" value="修改會員資料">
+            </form>
+        </fieldset>
+        
     </div>
 </body>
 </html>
