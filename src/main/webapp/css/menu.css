@@ -54,15 +54,14 @@ body{
 .button{
     border:0;
     background-color:rgba(0, 0, 0, 0); 
-    color: black;
+    color: rgba(0, 0, 0, 0.463);
     cursor:pointer;
     font-family: loginf;
-    font-size: 2rem;
+    font-size: 3rem;
     margin-left: 2%;
     margin-top: 4%;
     text-decoration: none;
 }
 .button:hover{
     color: darkorange;
-    /* color:black; */
 }
