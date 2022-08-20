@@ -14,16 +14,16 @@
 <body>
     <div class="div1">
         <ul>
-            <li><a class="index" href="Home.html" >首頁</a></li>
-            <li><a class="index" href="Reserved.html">線上訂位</a></li>
-            <li><a class="index" href="Menu.html"style="color: rgba(0, 0, 0, 0.463)">菜單</a></li>
-            <li><a class="index" href="Login.html">會員專區</a></li>
+            <li><a class="index" href="Home.html" >HOME</a></li>
+            <li><a class="index" href="Reserved.html">RESERVED</a></li>
+            <li><a class="index" href="Menu.html"style="color: rgba(0, 0, 0, 0.463)">MENU</a></li>
+            <li><a class="index" href="Login.html">LOGIN</a></li>
         </ul>
     </div>
-    <div style="margin: auto; width: 98%;">
+    <div style="margin: auto; width: 90%;">
         <table>
             <tr>
-                <td><span class="title1" style="padding-left: 5%;" >We Serve Food For You</span></td>
+                <td><span class="title1">We Serve Food For You</span></td>
                 <!-- 套餐圖片 -->
                 <td>
                     <img style="width: 100%;" src="css/image/套餐A.jpeg" >
@@ -102,6 +102,8 @@
             </tr>
             <!-- 表單 -->
             <form name="orderForm" action="http://localhost:8080/project/Order" method="post">
+                <button type="button" class="button" onclick="check()" style="width: 1.5%; position: fixed; top: 3%; right: 3%;"><img src="css/image/shopping_cart_white_24dp.svg" width="200%" ></button>
+                <a href="Searchorder.html" class="button" ><img src="css/image/search_white_24dp.svg" width="3%" style="position: fixed; top: 20%; right: 1.3%;"></a>
                 <tr>
                     <td></td>
                     <td style="align-items: center;">
@@ -172,7 +174,7 @@
                                 <input type="number" id="carte4" name="carte4" max="5" min="0"><span>份數</span>
                             </div>
                         </td>
-                        <td style="padding-bottom: 5%;"><span class="title1" style="padding-left: 10%;">Welcome Our Reastalink</span></td>
+                        <td style="padding-bottom: 5%;"><span class="title1" style="padding-left: 5%;">Welcome Our Reastalink</span></td>
                     </tr>
                     <tr></tr>
                     <tr>
@@ -224,12 +226,9 @@
                     </tr>
                 </table>
                 <div style="clear: both; text-align: center;">
-                    <p style="font-size: 40px;">
-                        <a href="Searchorder.html" class="button" style="margin-left: 3%;">訂單查詢</a>
-                        <input class="button" type="button" value="確認結帳" onclick="check()">
-                        <!-- <input class="button" type="button" value="線場點餐" onclick="check()"><br>
-                        <input style="margin-top: 0;" class="button" type="reset" value="取消"> -->
-                    </p>
+                    <a href="Searchorder.html" class="button" style="margin-left: 3%;">search</a>
+                    <input class="button" type="reset" value="reset">
+                    <input class="button" type="button" value="submit" onclick="check()">
                 </div>
             </form>
     </div>
