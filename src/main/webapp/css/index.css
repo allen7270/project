@@ -5,16 +5,12 @@
     src: url('tff/TWSung.otf');
 }
 @font-face {
-    font-family: newsf;
+    font-family: loginf;
     src: url('tff/HanyiSentySpringBrush.ttf');
 }
 @font-face {
     font-family: indexf;
     src: url('tff/HanyiSentyZHAO.ttf');
-}
-@font-face {
-    font-family: loginf;
-    src: url('tff/HanyiSentySpringBrush\ \(1\).ttf');
 }
 @font-face {
     font-family: art;
