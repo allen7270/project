@@ -96,6 +96,8 @@
 #footer{
     background-color: rgba(0, 0, 0, 0.166);
     padding-left: 1rem;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 .b{
     background-image:url(https://images.unsplash.com/photo-1619552713228-f1477e7dd421?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTYyfHxtb3VuYXRpbnN8ZW58MHx8MHx8&auto=format&fit=crop&w=1400&q=60);
@@ -108,8 +110,4 @@
 }
 .top2{
     top:56%;
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 399d2ad (home_top)
