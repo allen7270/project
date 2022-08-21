@@ -31,9 +31,13 @@
         <p><br></p>
         </div>
         <fieldset class="account backdrop-blur">
-        	<!--undone-->
+        	<a class="alter" href="RootMember.jsp">會員資料</a>
+            <a class="alter" style="margin-left: 10px;" href="RootOrderOnline.jsp">線上訂單</a>
+            <a class="alter" style="margin-left: 10px;" href="RootOrderOnsite.jsp">線場訂單</a>
+            <a class="alter" style="margin-left: 10px;" href="RootReserved.jsp">線上訂位</a>
+            <a class="alter" style="margin-left: 10px;" href="RootPunch.jsp">打卡資料</a>
             <form name="data"  method="post" action="http://localhost:8080/project/RootMemberAlterSubmit">
-	            <table width="990" style="margin-left: 15px;">
+	            <table width="990" style="margin-left: 15px; margin-top: 3%">
 	                <tr>
 	                    <th>帳號</th>
 	                    <th>姓名</th>

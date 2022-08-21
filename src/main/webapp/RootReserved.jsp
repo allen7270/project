@@ -31,7 +31,12 @@
         </div>
         <form>
             <fieldset class="account backdrop-blur">
-                <table width="700">
+            	<a class="alter" href="RootMember.jsp">會員資料</a>
+	            <a class="alter" style="margin-left: 10px;" href="RootOrderOnline.jsp">線上訂單</a>
+	            <a class="alter" style="margin-left: 10px;" href="RootOrderOnsite.jsp">線場訂單</a>
+	            <a class="alter" style="margin-left: 10px;" href="RootReserved.jsp">線上訂位</a>
+	            <a class="alter" style="margin-left: 10px;" href="RootPunch.jsp">打卡資料</a>
+                <table width="700" style="margin-top: 5%;">
                     <tr>
                         <th>流水號</th>
                         <th>姓名</th>
