@@ -2,65 +2,67 @@
 @import url(index.css);
 .div1{
     background-color:rgb(200, 198, 198); 
-    margin: 2% 10%; 
     margin-bottom: 4%; 
     padding-top: 10px;
     padding-bottom: 10px;
 }
-.set{
-    width: 30%;
-    float: left;
-}
 .text{
-    font-size: 1.6rem;
+    color: rgba(0, 0, 0, 0.463);
+    font-size: 1.2rem;
     font-family: art;
-    width: 60%;
-    background: linear-gradient(to right, #f7f7f7db,rgba(93, 93, 93, 0.861));
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+    width: 50%;
 }
 #footer{
-    background-color:rgba(0, 0, 0, 0.361);
+    background-color:rgba(0, 0, 0, 0.166);
     padding-left: 1rem;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 .div-set{
     float: left; 
     width: 20%; 
     padding-left: 10%;
-    padding-top: 3%;  
+    padding-top: 3%;
 }
 .title1{
-    color: white;
-    text-shadow: 2px 2px gray;
-    writing-mode:vertical-rl; 
-    font-size: 5rem;
-    font-family: indexf;
+    color: rgba(0, 0, 0, 0.463);
+    font-size: 4rem;
+    font-family: loginf;
 }
 .text-set{
     text-align: center;
     font-family: 'Noto Sans TC', sans-serif;
-    color: rgb(255, 255, 255);
 }
 .p-form{
-    float: left;
     font-size: 1.5rem;
 }
 .span-form{
-    color: rgba(255, 0, 0, 0.72);
+    color: darkorange;
 }
 .radio-set{
-    float: left;
-    width: 15%;
-    padding-left: 15%;
+    padding-left: 40%;
 }
 .form-s{
     float: left;
     width: 15%;
 }
-.b{
-    background-image:url(https://images.unsplash.com/photo-1523305846158-488dedcf8629?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nzh8fG1vdW5hdGluc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=1900&q=60);
+body{
+    background-image:url(https://images.unsplash.com/photo-1635545195955-e65d68631341?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDN8fHdoaXRlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=1600&q=60);
     background-position: center;
     background-repeat: none;
     background-attachment: fixed;
+}
+.button{
+    border:0;
+    background-color:rgba(0, 0, 0, 0); 
+    color: rgba(0, 0, 0, 0.463);
+    cursor:pointer;
+    font-family: loginf;
+    font-size: 3rem;
+    margin-left: 2%;
+    margin-top: 4%;
+    text-decoration: none;
+}
+.button:hover{
+    color: darkorange;
 }
