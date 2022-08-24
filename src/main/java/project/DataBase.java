@@ -109,13 +109,27 @@ public class DataBase {
 	}
 	
 	// Root-update member data
-	public void rootAltermamber(Data data){
+	public void rootAltermember(Data data){
 		try {
 			var treat= new Treat();
 			var con= getConnection();
 			var st= con.createStatement();
 			String sql= String.format("update member set passwd='%s',mail='%s', phone='%s' where account ='%s' and username='%s';",
 					treat.Encryption(data.getPasswd()), data.getMail(), data.getphone(),data.getAccount(),data.getUsername());
+			st.execute(sql);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	// Root-Delete member data
+	public void rootDelmember(Data data) {
+		try {
+			var con= getConnection();
+			var st= con.createStatement();
+			String sql= String.format("delete from member where username='%s';",
+					data.getUsername());
 			st.execute(sql);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
