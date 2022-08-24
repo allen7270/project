@@ -78,22 +78,30 @@
 				       			document.getElementById('mail').innerHTML='<input name="mail" type="text" id="mailIn" placeholder=" xxx@xxx.xxx" value="'+ans[2]+'">';
 				       			document.getElementById('phone').innerHTML='<input name="phone" type="text" id="phoneIn" placeholder=" 手機號碼" value="'+ans[3]+'">';
 				       			document.getElementById('account').value=optionValue;
+				       			document.getElementById('del').type='button';
 				       			
 				       		}
 				       		}
 				       		xmlHTTP.send();
 				        }
+				        function Del() {
+				        	document.getElementById('delete').value="yes";
+							alert("刪除成功!");
+							document.data.submit();
+						}
 				    </script>
 	                	<td id="username"></td>
 	                	<td id="passwd"></td>
 	                	<td id="mail"></td>
 	                	<td id="phone"></td>
+	                	<td><input class="button" type="hidden" name="del" id="del" value="Delete" onclick="Del()"></td>
 	                </tr>
 	            </table>
 	            <p class="text" style="margin-bottom: 3%;"></p>
                 <a href="Root.html" class="alter">管理員首頁</a>
                 <!-- submit account(optionValue) -->
                 <input type="hidden" name="account" id="account">
+                <input type="hidden" name="delete" id="delete">
                 <input type="button" class="button" value="確認" onclick="check()">
             </form>
         </fieldset>
