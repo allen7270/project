@@ -27,6 +27,7 @@ public class RootMemberAlterSubmit extends HttpServlet {
 		String passwd=request.getParameter("passwd");
 		String mail=request.getParameter("mail");
 		String phone=request.getParameter("phone");
+		String delete= request.getParameter("delete");
 		var dataBase= new DataBase();
 		var dataA= dataBase.showMemberAccount();
 		var data= new Data();
@@ -35,7 +36,10 @@ public class RootMemberAlterSubmit extends HttpServlet {
 		data.setPasswd(passwd);
 		data.setMail(mail);
 		data.setphone(phone);
-		dataBase.rootAltermamber(data);
+		if(delete.equals("yes")) {
+			dataBase.rootDelmember(data);
+		}
+		dataBase.rootAltermember(data);
 		response.sendRedirect("RootMember.jsp");
 	}
 
