@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>跳出視窗</title>
+    <title>菜單</title>
     <meta charset="UTF-8">
     <!-- Boostrap 導入程式 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
@@ -80,7 +80,7 @@
                     <img src="css/image/肉片-2.jpeg" style="width: 100%;" data-bs-toggle="modal" data-bs-target="#carte4Modal">
                     <P style="font-size: 1.5rem">田園嫩豚豬</P>
                 </td>
-                <td style="padding-left: 5%;">
+                <td style="padding-left: 5%;" rowspan="2">
                     <span class="text" >
                         Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
                     </span>
@@ -112,7 +112,7 @@
     <!-- form -->
     <form name="orderForm" action="http://localhost:8080/project/Order" method="post">
         <button type="button" class="button" onclick="check()" style="width: 1.5%; position: fixed; top: 9%; right: 3%;"><img src="css/image/shopping_cart_black_24dp.svg" width="200%" ></button>
-            <a href="Searchorder.html" class="button" style="margin: 0%;"><img src="css/image/search_black_24dp.svg" width="3%" style="position: fixed; top: 25%; right: 1.3%;"></a>
+        <a href="Searchorder.html" class="button" style="margin: 0%;"><img src="css/image/search_black_24dp.svg" width="3%" style="position: fixed; top: 28%; right: 1.3%;"></a>
         <!-- set1-context -->
         <div class="modal fade" id="set1Modal">
             <div class="modal-dialog">
@@ -142,7 +142,12 @@
                             </P>
                             <input type="number" id="set1" name="set1" max="5" min="0" style="padding-left: 30%;"><span>份數</span>
                         </div>
-                        <button type="button" class="button" data-bs-dismiss="modal" style="padding-left: 48%;">ok</button>
+                    </div>
+                    <!-- footer -->
+                    <div class="modal-footer">
+                        <div style="padding-right: 45%;">
+                            <button type="button" class="button" data-bs-dismiss="modal" style="padding-left: 48%;">ok</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -151,12 +156,12 @@
         <div class="modal fade" id="set2Modal">
             <div class="modal-dialog">
                 <div class="modal-content">
-                <!-- header -->
+                    <!-- header -->
                     <div class="modal-header">
                         <h3>【老辣香鍋】家享幸福套餐-豬</h3>
                         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                     </div>
-                <!-- body -->
+                    <!-- body -->
                     <div class="modal-body">
                         <p class="text-set" >
                             無老辣香鍋<br>
@@ -176,7 +181,12 @@
                             </P>
                             <input type="number" id="set2" name="set2" max="5" min="0" style="padding-left: 30%;"><span>份數</span>
                         </div>
-                        <button type="button" class="button" data-bs-dismiss="modal" style="padding-left: 48%;">ok</button>
+                    </div>
+                    <!-- footer -->
+                    <div class="modal-footer">
+                        <div style="padding-right: 45%;">
+                            <button type="button" class="button" data-bs-dismiss="modal" style="padding-left: 48%;">ok</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -210,7 +220,12 @@
                             </P>
                             <input type="number" id="set3" name="set3" max="5" min="0" style="padding-left: 30%;"><span>份數</span>
                         </div>
-                        <button type="button" class="button" data-bs-dismiss="modal" style="padding-left: 48%;">ok</button>
+                    </div>
+                    <!-- footer -->
+                    <div class="modal-footer">
+                        <div style="padding-right: 45%;">
+                            <button type="button" class="button" data-bs-dismiss="modal" style="padding-left: 48%;">ok</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -232,7 +247,12 @@
                             </P>
                             <input type="number" id="carte1" name="carte1" max="5" min="0" style="padding-left: 25%;"><span>份數</span>
                         </div>
-                        <button type="button" class="button" data-bs-dismiss="modal" style="padding-left: 44%;">ok</button>
+                    </div>
+                    <!-- footer -->
+                    <div class="modal-footer">
+                        <div style="padding-right: 50%;">
+                            <button type="button" class="button" data-bs-dismiss="modal" style="padding-left: 48%;">ok</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -254,7 +274,12 @@
                             </P>
                             <input type="number" id="carte2" name="carte2" max="5" min="0" style="padding-left: 25%;"><span>份數</span>
                         </div>
-                        <button type="button" class="button" data-bs-dismiss="modal" style="padding-left: 44%;">ok</button>
+                    </div>
+                    <!-- footer -->
+                    <div class="modal-footer">
+                        <div style="padding-right: 50%;">
+                            <button type="button" class="button" data-bs-dismiss="modal" style="padding-left: 48%;">ok</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -276,7 +301,12 @@
                             </P>
                             <input type="number" id="carte3" name="carte3" max="5" min="0" style="padding-left: 25%;"><span>份數</span>
                         </div>
-                        <button type="button" class="button" data-bs-dismiss="modal" style="padding-left: 44%;">ok</button>
+                    </div>
+                    <!-- footer -->
+                    <div class="modal-footer">
+                        <div style="padding-right: 50%;">
+                            <button type="button" class="button" data-bs-dismiss="modal" style="padding-left: 48%;">ok</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -298,7 +328,12 @@
                             </P>
                             <input type="number" id="carte4" name="carte4" max="5" min="0" style="padding-left: 25%;"><span>份數</span>
                         </div>
-                        <button type="button" class="button" data-bs-dismiss="modal" style="padding-left: 44%;">ok</button>
+                    </div>
+                    <!-- footer -->
+                    <div class="modal-footer">
+                        <div style="padding-right: 50%;">
+                            <button type="button" class="button" data-bs-dismiss="modal" style="padding-left: 48%;">ok</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -320,7 +355,12 @@
                             </P>
                             <input type="number" id="carte5" name="carte5" max="5" min="0" style="padding-left: 20%;"><span>份數</span>
                         </div>
-                        <button type="button" class="button" data-bs-dismiss="modal" style="padding-left: 45%;">ok</button>
+                    </div>
+                    <!-- footer -->
+                    <div class="modal-footer">
+                        <div style="padding-right: 50%;">
+                            <button type="button" class="button" data-bs-dismiss="modal" style="padding-left: 48%;">ok</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -342,7 +382,12 @@
                             </P>
                             <input type="number" id="carte6" name="carte6" max="5" min="0" style="padding-left: 25%;"><span>份數</span>
                         </div>
-                        <button type="button" class="button" data-bs-dismiss="modal" style="padding-left: 46%;">ok</button>
+                    </div>
+                    <!-- footer -->
+                    <div class="modal-footer">
+                        <div style="padding-right: 48%;">
+                            <button type="button" class="button" data-bs-dismiss="modal" style="padding-left: 48%;">ok</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -364,7 +409,12 @@
                             </P>
                             <input type="number" id="carte7" name="carte7" max="5" min="0" style="padding-left: 25%;"><span>份數</span>
                         </div>
-                        <button type="button" class="button" data-bs-dismiss="modal" style="padding-left: 46%;">ok</button>
+                    </div>
+                    <!-- footer -->
+                    <div class="modal-footer">
+                        <div style="padding-right: 48%;">
+                            <button type="button" class="button" data-bs-dismiss="modal" style="padding-left: 48%;">ok</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -386,7 +436,12 @@
                             </P>
                             <input type="number" id="carte8" name="carte8" max="5" min="0" style="padding-left: 25%;"><span>份數</span>
                         </div>
-                        <button type="button" class="button" data-bs-dismiss="modal" style="padding-left: 46%;">ok</button>
+                    </div>
+                    <!-- footer -->
+                    <div class="modal-footer">
+                        <div style="padding-right: 48%;">
+                            <button type="button" class="button" data-bs-dismiss="modal" style="padding-left: 48%;">ok</button>
+                        </div>
                     </div>
                 </div>
             </div>
