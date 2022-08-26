@@ -47,7 +47,7 @@ public class Login extends HttpServlet {
 			context.setAttribute("passwd", passwd);
 			response.sendRedirect("Root.html");
 		} else {
-			response.sendRedirect("Login.html");
+			response.sendRedirect("LoginError.jsp");
 		}
 	}
 	
