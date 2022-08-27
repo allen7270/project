@@ -1,4 +1,5 @@
 # 訂單管理系統
+頁面連結：https://allen7270.github.io/project/src/main/webapp/Home.html
 ## 專案說明 (Project Title)：
 ![](https://i.imgur.com/tcGcFvy.jpg)
 **`HTML | CSS | JS | AJAX | Java | Servlet/JSP | MySQL | Github | Tomcat`**
